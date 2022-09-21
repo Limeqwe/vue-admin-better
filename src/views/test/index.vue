@@ -10,12 +10,12 @@
     data() {
       return {
         id: '2',
-        value: '',
+        value: {},
         show: true,
       }
     },
     created() {
-      console.log('测试:', this.id)
+      console.log('调用前测试:', this.id)
       getTest(this.id)
         .then((res) => {
           this.$notification.success({
@@ -25,14 +25,14 @@
           console.log('成功，res: ', res)
           this.value = res.value
         })
-        .catch((err) => {
+        .catch((e) => {
           this.$notification.error({
             message: '失败',
-            description: err.msg || `操作失败`,
+            description: e.msg || `操作失败`,
           })
           console.log('失败，res: ', res)
         })
-      console.log('测试:', this.value)
+      console.log('调用结束测试:', this.value)
     },
     mounted() {},
     methods: {},
