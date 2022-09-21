@@ -53,23 +53,23 @@ export const asyncRoutes = [
       },
     ],
   },
-  /* {
-    path: "/test",
+  {
+    path: '/test',
     component: Layout,
-    redirect: "noRedirect",
+    redirect: 'noRedirect',
     children: [
       {
-        path: "test",
-        name: "Test",
-        component: () => import("@/views/test/index"),
+        path: 'test',
+        name: 'Test',
+        component: () => import('@/views/test/index'),
         meta: {
-          title: "test",
-          icon: "marker",
-          permissions: ["admin"],
+          title: 'test',
+          icon: 'marker',
+          permissions: ['admin'],
         },
       },
     ],
-  }, */
+  },
 
   {
     path: '/vab',

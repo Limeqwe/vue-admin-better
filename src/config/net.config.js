@@ -7,6 +7,10 @@ const network = {
     process.env.NODE_ENV === 'development'
       ? 'vab-mock-server'
       : 'vab-mock-server',
+  // baseURL2:
+  //   process.env.NODE_ENV === 'development'
+  //     ? 'http://localhost:8080'
+  //     : 'vab-mock-server',
   //配后端数据的接收方式application/json;charset=UTF-8或者application/x-www-form-urlencoded;charset=UTF-8
   contentType: 'application/json;charset=UTF-8',
   //消息框消失时间
