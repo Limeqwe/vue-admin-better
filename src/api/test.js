@@ -1,4 +1,3 @@
-// import request from 'axios'
 import request from '@/utils/request2'
 
 export function getTest(id) {
@@ -6,6 +5,6 @@ export function getTest(id) {
     url: `/api/test/play1/${id}`,
     // baseURL: 'http://localhost:8080',
     method: 'get',
-    timeout: 10000,
+    // timeout: 10000,
   })
 }
