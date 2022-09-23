@@ -30,7 +30,7 @@
 </template>
 <script>
   // import getTest from '@/api/test'
-  import { getTest, postTest } from '../../api/test'
+  import { getTest, postTest } from '../../api/testApi'
   export default {
     name: 'Test',
     data() {
