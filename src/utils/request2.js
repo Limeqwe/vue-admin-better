@@ -79,7 +79,11 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   (response) => {
     if (loadingInstance) loadingInstance.close()
-
+    // const data1 = response.data1
+    // if (+data1.status < 0) {
+    //   return Promise.reject(response.data1)
+    // }
+    // return response.data1
     const { data, config } = response
     const { code, msg } = data
     // 操作正常Code数组
@@ -93,6 +97,7 @@ instance.interceptors.response.use(
       handleCode(code, msg)
       return Promise.reject(
         'vue-admin-beautiful请求异常拦截:' +
+          response +
           JSON.stringify({ url: config.url, code, msg }) || 'Error'
       )
     }
