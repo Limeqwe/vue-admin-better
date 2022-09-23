@@ -53,23 +53,42 @@ export const asyncRoutes = [
       },
     ],
   },
+
   {
-    path: '/test',
+    path: '/pagetTest',
     component: Layout,
     redirect: 'noRedirect',
     children: [
       {
-        path: 'test',
-        name: 'Test',
-        component: () => import('@/views/test/index'),
+        path: 'pagetTest',
+        name: 'pagetTest',
+        component: () => import('@/views/page/pagetTest'),
         meta: {
-          title: 'test',
+          title: 'pagetTest',
           icon: 'marker',
           permissions: ['admin'],
         },
       },
     ],
   },
+
+  // {
+  //   path: '/test',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   children: [
+  //     {
+  //       path: 'test',
+  //       name: 'Test',
+  //       component: () => import('@/views/test/index'),
+  //       meta: {
+  //         title: 'test',
+  //         icon: 'marker',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //   ],
+  // },
 
   {
     path: '/vab',
