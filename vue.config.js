@@ -43,7 +43,7 @@ module.exports = {
   publicPath,
   assetsDir,
   outputDir,
-  lintOnSave,
+  lintOnSave: false,
 
   transpileDependencies,
   devServer: {
