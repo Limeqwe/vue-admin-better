@@ -1,7 +1,7 @@
 <template>
   <div class="test-container">
     <el-row class="demo-autocomplete">
-      <el-col :span="12">
+      <el-col :span="4">
         <div class="sub-title">激活即列出输入建议</div>
         <el-autocomplete
           v-model="state1"
