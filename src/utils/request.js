@@ -15,6 +15,7 @@ import store from '@/store'
 import qs from 'qs'
 import router from '@/router'
 import { isArray } from '@/utils/validate'
+import globalVariable from '../config/global-variable'
 
 let loadingInstance
 
@@ -121,5 +122,25 @@ instance.interceptors.response.use(
     }
   }
 )
+//创建实例时设置配置的默认值
+const service = axios.create({
+  baseURL: globalVariable.baseURL, // 访问地址
+  timeout: 2000000, //设置超时时间
+})
+//对请求的封装
+export const post = (url, param) => {
+  return service({
+    url: url,
+    method: 'post',
+    data: param,
+  })
+}
+export const get = (url, param) => {
+  return service({
+    url: url,
+    method: 'get',
+    params: param,
+  })
+}
 
 export default instance

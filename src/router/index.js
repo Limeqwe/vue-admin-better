@@ -355,23 +355,240 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/error',
-    component: EmptyLayout,
+    path: '/collect',
+    component: Layout,
     redirect: 'noRedirect',
-    name: 'Error',
-    meta: { title: '错误页', icon: 'bug' },
+    name: '收藏页面',
+    meta: {
+      title: '收藏页面',
+      icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
     children: [
       {
-        path: '401',
-        name: 'Error401',
-        component: () => import('@/views/401'),
-        meta: { title: '401' },
+        path: 'collect',
+        name: '收藏页面',
+        component: () => import('@/views/collect/index'),
+        meta: {
+          title: '收藏页面',
+          noKeepAlive: true,
+        },
+        children: null,
       },
+    ],
+  },
+  {
+    path: '/random',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '随机推荐页面',
+    meta: {
+      title: '随机推荐页面',
+      icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+    children: [
       {
-        path: '404',
-        name: 'Error404',
-        component: () => import('@/views/404'),
-        meta: { title: '404' },
+        path: 'random',
+        name: '随机推荐页面',
+        component: () => import('@/views/random/index'),
+        meta: {
+          title: '随机推荐页面',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/create',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '生成页面',
+    meta: {
+      title: '生成页面',
+      icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'create',
+        name: '生成页面',
+        component: () => import('@/views/create/index'),
+        meta: {
+          title: '生成页面',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/history',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '历史任务',
+    meta: {
+      title: '历史任务',
+      icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'history',
+        name: '历史任务',
+        component: () => import('@/views/history/index'),
+        meta: {
+          title: '历史任务',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/show',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '展示页面',
+    meta: {
+      title: '展示页面',
+      icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'show',
+        name: '展示选择页面',
+        component: () => import('@/views/show/index'),
+        meta: {
+          title: '展示选择页面',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/bline',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '折线',
+    meta: {
+      title: '折线',
+      // icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'bline',
+        name: '折线',
+        component: () => import('@/views/bline/index'),
+        meta: {
+          title: '折线',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/circle',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'circle',
+    meta: {
+      title: 'circle',
+      // icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'circle',
+        name: 'circle',
+        component: () => import('@/views/circle/index'),
+        meta: {
+          title: 'circle',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/histogram',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '柱状图',
+    meta: {
+      title: '柱状图',
+      // icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'histogram',
+        name: '柱状图',
+        component: () => import('@/views/histogram/index'),
+        meta: {
+          title: '柱状图',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/pie',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '饼图',
+    meta: {
+      title: '饼图',
+      // icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'pie',
+        name: '饼图',
+        component: () => import('@/views/pie/index'),
+        meta: {
+          title: '饼图',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/try',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'try',
+    meta: {
+      title: 'try',
+      // icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+
+    children: [
+      {
+        path: 'try',
+        name: 'try',
+        component: () => import('@/views/try/index'),
+        meta: {
+          title: 'try',
+          noKeepAlive: true,
+        },
+        children: null,
       },
     ],
   },
