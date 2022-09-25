@@ -33,6 +33,30 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true,
   },
+  {
+    path: '/bline',
+    name: 'bline',
+    component: () => import('@/views/bline/index'),
+    hidden: true,
+  },
+  {
+    path: '/pie',
+    name: 'pie',
+    component: () => import('@/views/pie/index'),
+    hidden: true,
+  },
+  {
+    path: '/circle',
+    name: 'circle',
+    component: () => import('@/views/circle/index'),
+    hidden: true,
+  },
+  {
+    path: '/histogram',
+    name: 'histogram',
+    component: () => import('@/views/histogram/index'),
+    hidden: true,
+  },
 ]
 
 export const asyncRoutes = [
@@ -378,22 +402,45 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/random',
+    path: '/recommend',
     component: Layout,
     redirect: 'noRedirect',
-    name: '随机推荐页面',
+    name: '随机页面',
     meta: {
-      title: '随机推荐页面',
+      title: '随机页面',
       icon: 'shopping-cart',
       permissions: ['admin'],
     },
     children: [
       {
-        path: 'random',
-        name: '随机推荐页面',
-        component: () => import('@/views/random/index'),
+        path: 'recommend',
+        name: '随机页面',
+        component: () => import('@/views/recommend/index'),
         meta: {
-          title: '随机推荐页面',
+          title: '随机页面',
+          noKeepAlive: true,
+        },
+        children: null,
+      },
+    ],
+  },
+  {
+    path: '/novel',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: '小说页面',
+    meta: {
+      title: '小说页面',
+      icon: 'shopping-cart',
+      permissions: ['admin'],
+    },
+    children: [
+      {
+        path: 'novel',
+        name: '小说页面',
+        component: () => import('@/views/novel/index'),
+        meta: {
+          title: '小说页面',
           noKeepAlive: true,
         },
         children: null,
