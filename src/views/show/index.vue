@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-button type="primary" @click="handle1">折线图</el-button>
-    <el-button type="primary" @click="handle2">饼图</el-button>
-    <el-button type="primary" @click="handle3">统计图</el-button>
-    <el-button type="primary" @click="handle4">circle</el-button>
+    <el-button type="primary" @click="handle1">小说排行榜</el-button>
+    <el-button type="primary" @click="handle2">作者热度分析</el-button>
+    <el-button type="primary" @click="handle3">阅读量分析</el-button>
+    <el-button type="primary" @click="handle4">月排行量</el-button>
   </div>
 </template>
 <script>
