@@ -100,6 +100,27 @@ export const asyncRoutes = [
         },
       },
       {
+        path: 'sent',
+        name: 'sent',
+        component: () => import('@/views/ycd/sent'),
+        meta: {
+          title: '传值',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'accept',
+        name: 'accept',
+        component: () => import('@/views/ycd/accept'),
+        meta: {
+          title: '收值',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+      },
+
+      {
         path: 'recommended',
         name: 'recommended',
         component: () => import('@/views/ycd/recommended'),
