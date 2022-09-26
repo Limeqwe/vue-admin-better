@@ -33,6 +33,30 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true,
   },
+  {
+    path: '/bline',
+    name: 'bline',
+    component: () => import('@/views/bline/index'),
+    hidden: true,
+  },
+  {
+    path: '/pie',
+    name: 'pie',
+    component: () => import('@/views/pie/index'),
+    hidden: true,
+  },
+  {
+    path: '/circle',
+    name: 'circle',
+    component: () => import('@/views/circle/index'),
+    hidden: true,
+  },
+  {
+    path: '/histogram',
+    name: 'histogram',
+    component: () => import('@/views/histogram/index'),
+    hidden: true,
+  },
 ]
 
 export const asyncRoutes = [
