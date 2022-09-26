@@ -58,37 +58,35 @@ export const asyncRoutes = [
     path: '/pagetTest',
     component: Layout,
     redirect: 'noRedirect',
+    name: 'Mall',
+    meta: {
+      title: '开发中',
+      icon: 'dice',
+      permissions: ['admin'],
+    },
     children: [
       {
         path: 'pagetTest',
         name: 'pagetTest',
-        component: () => import('@/views/page/pagetTest'),
+        component: () => import('@/views/ycd/pagetTest'),
         meta: {
           title: 'pagetTest',
           icon: 'marker',
           permissions: ['admin'],
         },
       },
+      {
+        path: 'recommended',
+        name: 'recommended',
+        component: () => import('@/views/ycd/recommended'),
+        meta: {
+          title: '随即推荐',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+      },
     ],
   },
-
-  // {
-  //   path: '/test',
-  //   component: Layout,
-  //   redirect: 'noRedirect',
-  //   children: [
-  //     {
-  //       path: 'test',
-  //       name: 'Test',
-  //       component: () => import('@/views/test/index'),
-  //       meta: {
-  //         title: 'test',
-  //         icon: 'marker',
-  //         permissions: ['admin'],
-  //       },
-  //     },
-  //   ],
-  // },
 
   {
     path: '/vab',
@@ -371,29 +369,6 @@ export const asyncRoutes = [
         component: () => import('@/views/collect/index'),
         meta: {
           title: '收藏页面',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/random',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: '随机推荐页面',
-    meta: {
-      title: '随机推荐页面',
-      icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
-    children: [
-      {
-        path: 'random',
-        name: '随机推荐页面',
-        component: () => import('@/views/random/index'),
-        meta: {
-          title: '随机推荐页面',
           noKeepAlive: true,
         },
         children: null,

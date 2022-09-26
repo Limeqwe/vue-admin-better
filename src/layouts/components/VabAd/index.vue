@@ -9,8 +9,11 @@
       indicator-position="none"
     >
       <el-carousel-item v-for="(item, index) in adList" :key="index">
-        <el-tag type="warning">Ad</el-tag>
-        <a target="_blank" :href="item.url">{{ item.title }}</a>
+        <el-tag type="warning">全局显示</el-tag>
+        <!-- <a target="_blank" :href="item.url">{{ item.title }}</a> -->
+        <a target="_blank">
+          --------------------具体信息-----------------------
+        </a>
       </el-carousel-item>
     </el-carousel>
   </div>
