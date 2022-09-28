@@ -472,7 +472,7 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/bline',
+    path: '/bline1',
     component: Layout,
     redirect: 'noRedirect',
     name: '折线',
@@ -496,7 +496,7 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/circle',
+    path: '/circle1',
     component: Layout,
     redirect: 'noRedirect',
     name: 'circle',
@@ -520,7 +520,7 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/histogram',
+    path: '/histogram1',
     component: Layout,
     redirect: 'noRedirect',
     name: '柱状图',
@@ -544,7 +544,7 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/pie',
+    path: '/pie1',
     component: Layout,
     redirect: 'noRedirect',
     name: '饼图',

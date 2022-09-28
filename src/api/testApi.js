@@ -3,7 +3,7 @@ import request from 'axios'
 export function getTest(id) {
   return request({
     url: `/api/test/play1/${id}`,
-    // baseURL: 'http://localhost:8080',
+    // baseURL: 'http://localhost:8090',
     method: 'get',
   })
 }
@@ -11,7 +11,16 @@ export function getTest(id) {
 export function postTest(param) {
   return request({
     url: `/api/test/play2`,
-    // baseURL: 'http://localhost:8080',
+    // baseURL: 'http://localhost:8090',
+    method: 'post',
+    params: param,
+  })
+}
+
+export function postInformation(param) {
+  return request({
+    url: `api/test/SelectInformationById`,
+    //baseURL:'httpL//localhost:8090',
     method: 'post',
     params: param,
   })
