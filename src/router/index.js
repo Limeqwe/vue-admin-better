@@ -82,7 +82,7 @@ export const asyncRoutes = [
     path: '/pagetTest',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'Mall',
+    name: 'pagetTest',
     meta: {
       title: '开发中',
       icon: 'dice',
@@ -90,8 +90,18 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'pagetTest',
-        name: 'pagetTest',
+        path: 'author',
+        name: 'author',
+        component: () => import('@/views/ycd/author'),
+        meta: {
+          title: '作者详情',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'pagetTest1',
+        name: 'pagetTest1',
         component: () => import('@/views/ycd/pagetTest'),
         meta: {
           title: 'pagetTest',
@@ -125,13 +135,23 @@ export const asyncRoutes = [
     path: '/perfect',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'Mall',
+    name: 'perfect',
     meta: {
       title: '完善中',
       icon: 'dice',
       permissions: ['admin'],
     },
     children: [
+      {
+        path: 'book',
+        name: 'book',
+        component: () => import('@/views/ycd/book'),
+        meta: {
+          title: '小说详情',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
       {
         path: 'recommended',
         name: 'recommended',

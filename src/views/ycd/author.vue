@@ -3,20 +3,20 @@
     <el-main>
       <el-row :gutter="40">
         <el-col :span="4">
-          <el-link :underline="false" :href="bookUrl">
+          <el-link :underline="false" :href="authorUrl">
             <img :src="imgUrl" width="180" />
           </el-link>
         </el-col>
         <el-col :span="20">
           <el-container>
-            <el-link :underline="false" :href="bookUrl">
-              <span class="book-title">{{ bookName }}</span>
+            <el-link :underline="false" :href="authorUrl">
+              <span class="book-title">{{ authorName }}</span>
             </el-link>
           </el-container>
           <el-container>
             <el-main>
               <span class="tag">
-                字数：{{ wordsNum }}&emsp;&emsp;&emsp;标签1 标签2
+                作品数：{{ bookNum }}本&emsp;&emsp;&emsp;标签1 标签2
               </span>
             </el-main>
           </el-container>
@@ -28,19 +28,19 @@
       </el-row>
       <el-divider></el-divider>
     </el-main>
+    <el-footer>测试</el-footer>
   </el-container>
 </template>
 <script>
   export default {
     data() {
       return {
-        bookName: '民国诡闻实录',
-        bookUrl: 'https://book.zongheng.com/book/1208354.html',
+        authorName: '漆奥峤',
+        authorUrl: 'https://home.zongheng.com/show/userInfo/46718457.html',
         imgUrl:
-          'https://static.zongheng.com/upload/cover/ca/60/ca60ae14553d0703b82a9993f87af0b9.jpeg',
-        wordsNum: '三百万',
-        introduce:
-          '民国初立，军阀割据，活人难生世道艰，死人复阳妖异现，此为众生鬼像也，兴安岭猎人岳观潮为救被出马仙诅咒的弟兄，惹上兴安岭原始神灵，从此踏上一条未知险途，兴安岭、长白山、贝加尔、神农架、罗布泊……他在乱世漂泊中辗转各地，探索诡异秘闻，寻觅扑朔迷离的真相！',
+          'https://static.zongheng.com/userimage/2a/18/2a186fb6f022915fdf0f45290bc6709fV1_120_120.jpeg',
+        bookNum: 4,
+        introduce: '|暂无简介~',
       }
     },
   }
