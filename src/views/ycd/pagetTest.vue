@@ -1,3 +1,4 @@
+<!-- 随机推荐 -->
 <template>
   <div class="test-container">
     <el-row class="demo-autocomplete">

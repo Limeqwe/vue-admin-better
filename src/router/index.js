@@ -131,13 +131,25 @@ export const asyncRoutes = [
           permissions: ['admin'],
         },
       },
-
+    ],
+  },
+  {
+    path: '/perfect',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'Mall',
+    meta: {
+      title: '完善中',
+      icon: 'dice',
+      permissions: ['admin'],
+    },
+    children: [
       {
         path: 'recommended',
         name: 'recommended',
         component: () => import('@/views/ycd/recommended'),
         meta: {
-          title: '随即推荐',
+          title: '随机推荐',
           icon: 'dice',
           permissions: ['admin'],
         },
