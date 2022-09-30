@@ -48,6 +48,9 @@
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">
+            结果分析
+          </el-button>
+          <el-button size="mini" @click="handleEdit1(scope.$index, scope.row)">
             规则查看
           </el-button>
           <el-button
@@ -130,6 +133,27 @@
     methods: {
       handleEdit(index, row) {
         console.log(index, row)
+        this.$router.push({ path: '/show1' })
+      },
+
+      handleEdit1(index, row) {
+        this.$confirm('具体信息为:XXXXXXX', '规则生成为:', {
+          confirmButtonText: '确定',
+          cancalButtonText: '取消',
+          type: 'warning',
+        })
+          .then(() => {
+            this.$message({
+              type: 'scuess',
+              message: '确定成功！',
+            })
+          })
+          .catch(() => {
+            this.$message({
+              type: 'info',
+              message: '取消成功!',
+            })
+          })
       },
 
       handleDelete(index, row) {

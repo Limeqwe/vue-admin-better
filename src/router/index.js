@@ -57,6 +57,18 @@ export const constantRoutes = [
     component: () => import('@/views/histogram/index'),
     hidden: true,
   },
+  {
+    path: '/show1',
+    name: 'show1',
+    component: () => import('@/views/show/index'),
+    hidden: true,
+  },
+  {
+    path: '/history',
+    name: 'history',
+    component: () => import('@/views/history/index'),
+    hidden: true,
+  },
 ]
 
 export const asyncRoutes = [
@@ -433,7 +445,7 @@ export const asyncRoutes = [
     path: '/collect',
     component: Layout,
     redirect: 'noRedirect',
-    name: '收藏页面',
+    name: '收藏首页面',
     meta: {
       title: '收藏页面',
       icon: 'shopping-cart',
@@ -453,10 +465,10 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/create',
+    path: '/create1',
     component: Layout,
     redirect: 'noRedirect',
-    name: '生成页面',
+    name: '生成首页面',
     meta: {
       title: '生成页面',
       icon: 'shopping-cart',
@@ -477,10 +489,10 @@ export const asyncRoutes = [
     ],
   },
   {
-    path: '/history',
+    path: '/history1',
     component: Layout,
     redirect: 'noRedirect',
-    name: '历史任务',
+    name: '历史首任务',
     meta: {
       title: '历史任务',
       icon: 'shopping-cart',
@@ -489,7 +501,7 @@ export const asyncRoutes = [
 
     children: [
       {
-        path: 'history',
+        path: 'history1',
         name: '历史任务',
         component: () => import('@/views/history/index'),
         meta: {
@@ -504,7 +516,7 @@ export const asyncRoutes = [
     path: '/show',
     component: Layout,
     redirect: 'noRedirect',
-    name: '展示页面',
+    name: '展示首页面',
     meta: {
       title: '展示页面',
       icon: 'shopping-cart',
@@ -528,7 +540,7 @@ export const asyncRoutes = [
     path: '/bline1',
     component: Layout,
     redirect: 'noRedirect',
-    name: '折线',
+    name: '折线首页',
     meta: {
       title: '折线',
       // icon: 'shopping-cart',
@@ -538,7 +550,7 @@ export const asyncRoutes = [
     children: [
       {
         path: 'bline',
-        name: '折线',
+        name: '折线首页',
         component: () => import('@/views/bline/index'),
         meta: {
           title: '折线',
@@ -552,7 +564,7 @@ export const asyncRoutes = [
     path: '/circle1',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'circle',
+    name: 'circle首页',
     meta: {
       title: 'circle',
       // icon: 'shopping-cart',
@@ -576,7 +588,7 @@ export const asyncRoutes = [
     path: '/histogram1',
     component: Layout,
     redirect: 'noRedirect',
-    name: '柱状图',
+    name: '柱状图首页',
     meta: {
       title: '柱状图',
       // icon: 'shopping-cart',
@@ -600,7 +612,7 @@ export const asyncRoutes = [
     path: '/pie1',
     component: Layout,
     redirect: 'noRedirect',
-    name: '饼图',
+    name: '饼图首页',
     meta: {
       title: '饼图',
       // icon: 'shopping-cart',
