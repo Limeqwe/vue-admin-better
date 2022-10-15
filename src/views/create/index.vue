@@ -65,7 +65,14 @@
         ></el-input>
       </el-form-item>
 
-      <el-form-item label="60~90万字" class="layout">
+      <el-form-item label="60~100万字" class="layout">
+        <el-input
+          v-model="form.num2"
+          placeholder="请输入百分比"
+          class="input3"
+        ></el-input>
+      </el-form-item>
+      <el-form-item label="100~200万字" class="layout">
         <el-input
           v-model="form.num2"
           placeholder="请输入百分比"
@@ -153,17 +160,17 @@
     justify-content: space-between;
   } */
   .input1 {
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: gray;
     width: 20%;
     left: 100px;
   }
   .input2 {
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: gray;
     width: 20%;
     left: 300px;
   }
   .input3 {
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: gray;
     width: 60%;
     left: 100px;
   }

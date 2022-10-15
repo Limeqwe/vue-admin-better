@@ -25,3 +25,12 @@ export function postInformation(param) {
     params: param,
   })
 }
+
+export function login(param) {
+  return request({
+    url: `/api/test/login`,
+    // baseURL: 'http://localhost:8090',
+    method: 'post',
+    params: param,
+  })
+}

@@ -106,7 +106,7 @@
     },
   }
 </script>
-<style>
+<style scoped>
   .img {
     height: 126px;
     width: 95px;

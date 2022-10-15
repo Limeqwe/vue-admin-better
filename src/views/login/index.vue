@@ -75,6 +75,7 @@
 
 <script>
   import { isPassword } from '@/utils/validate'
+  import { login } from '@/api/testApi'
 
   export default {
     name: 'Login',
@@ -143,11 +144,11 @@
       document.body.style.overflow = 'auto'
     },
     mounted() {
-      this.form.username = 'admin'
-      this.form.password = '123456'
-      setTimeout(() => {
-        this.handleLogin()
-      }, 3000)
+      // this.form.username = 'admin'
+      // this.form.password = '123456'
+      // setTimeout(() => {
+      //   this.handleLogin()
+      // }, 3000)
     },
     methods: {
       handlePassword() {
@@ -159,8 +160,18 @@
         })
       },
       handleLogin() {
-        this.$refs.form.validate((valid) => {
-          if (valid) {
+        // console.log('账号：', this.form.username)
+        // console.log('密码：', this.form.password)
+        login(this.form).then((res) => {
+          console.log('登录结果：', res.data)
+          var result = res.data.data.result
+          var msg = res.data.msg
+          if (result) {
+            this.$notify({
+              title: '登录成功',
+              message: msg,
+              type: 'success',
+            })
             this.loading = true
             this.$store
               .dispatch('user/login', this.form)
@@ -176,6 +187,10 @@
                 this.loading = false
               })
           } else {
+            this.$notify.error({
+              title: '登录失败',
+              message: msg,
+            })
             return false
           }
         })

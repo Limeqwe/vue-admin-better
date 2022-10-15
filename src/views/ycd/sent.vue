@@ -48,7 +48,7 @@
         svalue = '传递成功'
         this.$router.push({
           path: '/pagetTest/accept',
-          query: { sentValue: svalue },
+          query: { sentValue1: svalue },
         })
       },
       get(id) {

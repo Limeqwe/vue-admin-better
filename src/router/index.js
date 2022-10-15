@@ -102,12 +102,13 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'author',
-        name: 'author',
-        component: () => import('@/views/ycd/author'),
+        path: 'created',
+        name: 'created',
+        component: () => import('@/views/ycd/created'),
         meta: {
-          title: '作者详情',
+          title: '生成页面',
           icon: 'marker',
+          KeepAlive: true,
           permissions: ['admin'],
         },
       },
@@ -118,6 +119,7 @@ export const asyncRoutes = [
         meta: {
           title: 'pagetTest',
           icon: 'marker',
+          KeepAlive: true,
           permissions: ['admin'],
         },
       },
@@ -155,12 +157,34 @@ export const asyncRoutes = [
     },
     children: [
       {
+        path: 'collection',
+        name: 'collection',
+        component: () => import('@/views/ycd/collection'),
+        meta: {
+          title: '收藏页面',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+      {
         path: 'book',
         name: 'book',
         component: () => import('@/views/ycd/book'),
         meta: {
           title: '小说详情',
           icon: 'marker',
+          KeepAlive: true,
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'author',
+        name: 'author',
+        component: () => import('@/views/ycd/author'),
+        meta: {
+          title: '作者详情',
+          icon: 'marker',
+          KeepAlive: true,
           permissions: ['admin'],
         },
       },

@@ -23,7 +23,8 @@
       }
     },
     created() {
-      this.accept = this.$route.query.sentValue
+      this.accept = this.$route.query.sentValue1
+      console.log('accept:', this.accept)
       var that = this
       getTest(this.id).then((res) => {
         console.log('成功，res.data.data: ', res.data.data)
