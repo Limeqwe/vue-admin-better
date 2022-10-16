@@ -133,7 +133,7 @@
     methods: {
       handleEdit(index, row) {
         console.log(index, row)
-        this.$router.push({ path: '/show1' })
+        this.$router.push({ path: '/show' + '/show' })
       },
 
       handleEdit1(index, row) {
