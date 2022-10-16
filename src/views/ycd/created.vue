@@ -124,6 +124,8 @@
   export default {
     data() {
       return {
+        value1: '',
+        value2: '',
         options1: [
           {
             value: '0',
@@ -160,8 +162,6 @@
             label: '20%，40%，35%，5%',
           },
         ],
-        value1: '',
-        value2: '',
         ruleForm: {
           dataSize: null,
           maxRecommend: null,
@@ -409,11 +409,6 @@
 </script>
 
 <style scoped>
-  /* .btn {
-    display: flex;
-    justify-content: center;
-  } */
-
   .el-button--primary {
     width: 100px;
   }

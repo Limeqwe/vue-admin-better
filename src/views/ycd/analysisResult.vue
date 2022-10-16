@@ -106,6 +106,7 @@
         total: 13, //列表总行数
         listLoading: true,
         elementLoadingText: '后台处理中。。。。',
+        analysisResultList: [],
         dataList: [
           {
             id: 1,

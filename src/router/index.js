@@ -130,28 +130,6 @@ export const asyncRoutes = [
         },
       },
       {
-        path: 'book',
-        name: 'book',
-        component: () => import('@/views/ycd/book'),
-        meta: {
-          title: '小说详情',
-          icon: 'marker',
-          KeepAlive: true,
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'author',
-        name: 'author',
-        component: () => import('@/views/ycd/author'),
-        meta: {
-          title: '作者详情',
-          icon: 'marker',
-          KeepAlive: true,
-          permissions: ['admin'],
-        },
-      },
-      {
         path: 'created',
         name: 'created',
         component: () => import('@/views/ycd/created'),
@@ -179,6 +157,28 @@ export const asyncRoutes = [
         component: () => import('@/views/ycd/analysisResult'),
         meta: {
           title: '分析结果',
+          icon: 'marker',
+          KeepAlive: true,
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'book',
+        name: 'book',
+        component: () => import('@/views/ycd/book'),
+        meta: {
+          title: '小说详情',
+          icon: 'marker',
+          KeepAlive: true,
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'author',
+        name: 'author',
+        component: () => import('@/views/ycd/author'),
+        meta: {
+          title: '作者详情',
           icon: 'marker',
           KeepAlive: true,
           permissions: ['admin'],

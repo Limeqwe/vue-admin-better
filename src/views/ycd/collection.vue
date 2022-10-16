@@ -4,7 +4,7 @@
       <el-main>
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="书名:">
-            <el-input v-model="formInline.author"></el-input>
+            <el-input v-model="formInline.authorName"></el-input>
           </el-form-item>
           <!-- <big>or</big> -->
           <el-form-item label="or   作者:">
@@ -16,6 +16,7 @@
             </el-button>
           </el-form-item>
         </el-form>
+        <el-divider></el-divider>
         <el-table
           ref="tableSort"
           v-loading="listLoading"
@@ -24,11 +25,6 @@
           @selection-change="setSelectRows"
           @sort-change="tableSortChange"
         >
-          <!-- <el-table-column
-            show-overflow-tooltip
-            type="selection"
-            width="55"
-          ></el-table-column> -->
           <el-table-column
             show-overflow-tooltip
             prop="id"
@@ -43,13 +39,13 @@
           ></el-table-column>
           <el-table-column
             show-overflow-tooltip
-            prop="author"
+            prop="authorName"
             label="作者"
             width="200"
           ></el-table-column>
           <el-table-column
             show-overflow-tooltip
-            prop="label"
+            prop="serials"
             label="是否完结"
           ></el-table-column>
           <el-table-column
@@ -58,24 +54,6 @@
             label="字数(万字)"
             sortable
           ></el-table-column>
-          <!-- <el-table-column
-          show-overflow-tooltip
-          prop="recommonend"
-          label="总推荐"
-          sortable
-        ></el-table-column>
-        <el-table-column
-          show-overflow-tooltip
-          prop="weekCRecommonend"
-          label="周推荐"
-          sortable
-        ></el-table-column>
-        <el-table-column
-          show-overflow-tooltip
-          prop="click"
-          label="点击数"
-          sortable
-        ></el-table-column> -->
           <el-table-column
             show-overflow-tooltip
             prop="time"
@@ -93,7 +71,7 @@
         <el-pagination
           :current-page.sync="currentPage"
           :total="total"
-          :page-sizes="[1, 5, 10, 15]"
+          :page-sizes="[1, 5, 10, 15, dataList.length]"
           :page-size.sync="pageSize"
           background
           layout="prev, pager, next, sizes, total, jumper"
@@ -114,18 +92,19 @@
         currentPage: 1, //当前页
         pageSize: 5, //每页行数
         total: 13, //列表总行数
-        formInline: {
-          author: '',
-          bookName: '',
-        },
         listLoading: true,
         elementLoadingText: '后台处理中。。。。',
+        formInline: {
+          authorName: '',
+          bookName: '',
+        },
+        bookList: [],
         dataList: [
           {
             id: 1,
             bookName: '民国诡闻实录',
-            author: '王富贵',
-            label: '连载中',
+            authorName: '王富贵',
+            serials: '连载中',
             words: 210.1,
             recommonend: 5444,
             weekCRecommonend: 320,
@@ -140,8 +119,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -154,8 +133,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -168,8 +147,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -182,8 +161,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -196,8 +175,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -210,8 +189,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -224,8 +203,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -238,8 +217,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -252,8 +231,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -266,8 +245,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -280,8 +259,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -294,8 +273,8 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
+            authorName: '王富贵2222',
+            serials: '连载中',
             words: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
@@ -314,7 +293,7 @@
       }
       // this.dataList = this.list
       this.tempList = this.dataList
-      // this.total = 13
+      this.total = this.dataList.length
       this.handleCurrentChange(1)
       console.log('dataList:', this.dataList)
       console.log('tempList:', this.tempList)

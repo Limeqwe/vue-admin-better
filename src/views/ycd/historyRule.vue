@@ -113,6 +113,7 @@
         total: 13, //列表总行数
         listLoading: true,
         elementLoadingText: '后台处理中。。。。',
+        ruleList: [],
         dataList: [
           {
             id: 1,

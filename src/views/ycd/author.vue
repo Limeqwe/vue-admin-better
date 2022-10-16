@@ -2,13 +2,13 @@
   <el-container>
     <el-main>
       <el-container>
-        <span class="book-title">{{ authorName }}</span>
+        <span class="book-title">{{ author.authorName }}</span>
       </el-container>
       <el-container>
         <el-main>
           <span class="tag">
-            作品数：{{ bookNum }}本&emsp;&emsp;&emsp;累计字数：{{
-              wordsNum
+            作品数：{{ author.bookNum }}本&emsp;&emsp;&emsp;累计字数：{{
+              author.authorWordsNum
             }}万字
           </span>
         </el-main>
@@ -18,7 +18,7 @@
         <el-table
           ref="tableSort"
           v-loading="listLoading"
-          :data="list"
+          :data="bookList"
           :element-loading-text="elementLoadingText"
           @selection-change="setSelectRows"
           @sort-change="tableSortChange"
@@ -41,12 +41,12 @@
           ></el-table-column>
           <el-table-column
             show-overflow-tooltip
-            prop="label"
+            prop="serials"
             label="是否完结"
           ></el-table-column>
           <el-table-column
             show-overflow-tooltip
-            prop="words"
+            prop="wordsNum"
             label="字数(万字)"
             sortable
           ></el-table-column>
@@ -83,7 +83,6 @@
       </el-container>
       <el-divider></el-divider>
     </el-main>
-    <!-- <el-main>测试消息提示</el-main> -->
   </el-container>
 </template>
 <script>
@@ -91,18 +90,16 @@
     data() {
       return {
         accept: '',
+        author: { authorName: '漆奥峤', authorWordsNum: 443.6, bookNum: 4 },
         listLoading: true,
-        authorName: '漆奥峤',
-        wordsNum: 443.6,
-        bookNum: 4,
         elementLoadingText: '后台处理中。。。。',
-        list: [
+        bookList: [
           {
             id: 1,
             bookName: '民国诡闻实录',
-            author: '王富贵',
-            label: '连载中',
-            words: 210.1,
+            authorName: '王富贵',
+            serials: '连载中',
+            wordsNum: 210.1,
             recommonend: 5444,
             weekCRecommonend: 320,
             click: 6420,
@@ -116,9 +113,9 @@
           {
             id: 2,
             bookName: '民国诡闻',
-            author: '王富贵2222',
-            label: '连载中',
-            words: 240.1,
+            authorName: '王富贵2222',
+            serials: '连载中',
+            wordsNum: 240.1,
             recommonend: 3444,
             weekCRecommonend: 320,
             click: 7420,
@@ -132,9 +129,9 @@
     },
     created() {
       this.accept = this.$route.query.sentAuthor
-      this.authorName = this.accept
-      console.log('author: ', this.authorName)
-      if (this.list) {
+      this.author.authorName = this.accept
+      console.log('authorName: ', this.author.authorName)
+      if (this.bookList) {
         this.listLoading = false
       }
     },
