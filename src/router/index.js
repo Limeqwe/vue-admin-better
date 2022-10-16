@@ -51,12 +51,12 @@ export const constantRoutes = [
     component: () => import('@/views/circle/index'),
     hidden: true,
   },
-  {
-    path: '/histogram',
-    name: 'histogram',
-    component: () => import('@/views/histogram/index'),
-    hidden: true,
-  },
+  // {
+  //   path: '/histogram',
+  //   name: 'histogram',
+  //   component: () => import('@/views/histogram/index'),
+  //   hidden: true,
+  // },
   {
     path: '/show1',
     name: 'show1',
@@ -102,17 +102,6 @@ export const asyncRoutes = [
     },
     children: [
       {
-        path: 'created',
-        name: 'created',
-        component: () => import('@/views/ycd/created'),
-        meta: {
-          title: '生成页面',
-          icon: 'marker',
-          KeepAlive: true,
-          permissions: ['admin'],
-        },
-      },
-      {
         path: 'pagetTest1',
         name: 'pagetTest1',
         component: () => import('@/views/ycd/pagetTest'),
@@ -156,6 +145,17 @@ export const asyncRoutes = [
       permissions: ['admin'],
     },
     children: [
+      {
+        path: 'created',
+        name: 'created',
+        component: () => import('@/views/ycd/created'),
+        meta: {
+          title: '生成页面',
+          icon: 'marker',
+          KeepAlive: true,
+          permissions: ['admin'],
+        },
+      },
       {
         path: 'collection',
         name: 'collection',

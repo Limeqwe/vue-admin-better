@@ -288,6 +288,12 @@
       value1() {
         console.log('value1:', this.value1)
         switch (this.value1) {
+          case null:
+            this.ruleForm.dataSize = null
+            this.ruleForm.maxRecommend = null
+            this.ruleForm.maxWeekRecommend = null
+            this.ruleForm.maxClick = null
+            break
           case '0':
             this.ruleForm.dataSize = 0
             this.ruleForm.maxRecommend = 0
@@ -318,6 +324,12 @@
       value2() {
         console.log('value2:', this.value2)
         switch (this.value2) {
+          case null:
+            this.ruleForm.fristWordNum = null
+            this.ruleForm.secondWordNum = null
+            this.ruleForm.thirdWordNum = null
+            this.ruleForm.fourthWordNum = null
+            break
           case '0':
             this.ruleForm.fristWordNum = 0
             this.ruleForm.secondWordNum = 0
@@ -345,26 +357,47 @@
         }
         console.log('ruleForm:', this.ruleForm)
       },
-      methods: {
-        submitForm1(ruleForm) {
-          // this.value1 = 0
-          // this.value2 = 0
-          this.$refs[ruleForm].resetFields()
-          console.log('ruleForm:', this.ruleForm)
-        },
-        submitForm(formName) {
-          this.$refs[formName].validate((valid) => {
-            if (valid) {
-              alert('submit!')
-            } else {
-              console.log('error submit!!')
-              return false
-            }
-          })
-        },
-        resetForm(formName) {
-          this.$refs[formName].resetFields()
-        },
+    },
+    methods: {
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            // alert('submit!')
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+              confirmButtonText: '确定',
+              cancelButtonText: '取消',
+              type: 'success',
+            })
+              .then(() => {
+                this.$message({
+                  type: 'success',
+                  message: '删除成功!',
+                })
+              })
+              .catch(() => {
+                this.$message({
+                  type: 'info',
+                  message: '已取消删除',
+                })
+              })
+          } else {
+            console.log('error submit!!')
+            return false
+          }
+        })
+      },
+      resetForm(formName) {
+        this.value1 = null
+        this.value2 = null
+        // this.ruleForm.dataSize = null
+        // this.ruleForm.maxRecommend = null
+        // this.ruleForm.maxWeekRecommend = null
+        // this.ruleForm.maxClick = null
+        // this.ruleForm.fristWordNum = null
+        // this.ruleForm.secondWordNum = null
+        // this.ruleForm.thirdWordNum = null
+        // this.ruleForm.fourthWordNum = null
+        this.$refs[formName].resetFields()
       },
     },
   }
