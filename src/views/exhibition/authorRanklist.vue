@@ -54,34 +54,19 @@
         console.log(listName)
         console.log(information)
         const option = {
-          title: {
-            text: '周推荐排行榜',
-          },
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'shadow',
-            },
-          },
-          legend: {},
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true,
+          tile: {
+            text: '小说作者柱状图',
+            left: 'center',
           },
           xAxis: {
-            type: 'value',
-            boundaryGap: [0, 0.01],
-          },
-          yAxis: {
-            type: 'category',
             data: listName,
           },
+          yAxis: {},
           series: [
             {
               type: 'bar',
               data: information,
+              barWidth: 30,
             },
           ],
         }
