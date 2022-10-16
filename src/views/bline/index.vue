@@ -12,13 +12,17 @@
 <script>
   // 引入echarts,之前也需要下载安装echarts
   import * as echarts from 'echarts'
-  import { getList } from '../../api/testApi'
+  import { postListByListName } from '../../api/testApi'
   export default {
     name: 'Home',
     data() {
       return {
         allData: {},
-        listName: '热度排行榜',
+        param: {
+          listName: '热度排行榜',
+          DataOrigin: '0',
+        },
+
         chartInstance: null,
       }
     },
@@ -44,7 +48,7 @@
 
       async getData() {
         var that = this
-        getList(this.listName).then((res) => {
+        getList(this.listName, this.DataOrigin).then((res) => {
           console.log('成功,res.data.data = ', res.data.data)
           that.allData = res.data.data
           that.updateChart()

@@ -85,7 +85,7 @@
 </template>
 
 <script>
-  import { postListByListName } from '../../api/testApi'
+  import { postInformation } from '../../api/testApi'
   export default {
     data() {
       return {
@@ -100,7 +100,7 @@
     },
     created() {
       var that = this
-      postListByListName(this.param).then((res) => {
+      postInformation(this.param).then((res) => {
         console.log('成功,res.data', res.data.data)
         that.value = res.data.data
         console.log(that.value)
