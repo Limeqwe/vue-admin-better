@@ -25,6 +25,7 @@ export function postInformation(param) {
     params: param,
   })
 }
+
 export function getList(listName) {
   return request({
     url: `/api/test/selectListByListName/${listName}`,
@@ -36,6 +37,13 @@ export function login(param) {
   return request({
     url: `/api/test/login`,
     // baseURL: 'http://localhost:8090',
+    method: 'post',
+    params: param,
+  })
+}
+export function postListByListName(param) {
+  return request({
+    url: `api/test/selectListByListName`,
     method: 'post',
     params: param,
   })

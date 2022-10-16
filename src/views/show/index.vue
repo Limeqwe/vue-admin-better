@@ -11,19 +11,19 @@
     methods: {
       handle1() {
         //  路径/home对应我在router目录下index.js中定义的path属性值
-        this.$router.push({ path: '/bline' })
+        this.$router.push({ path: '/bline1' + '/bline' })
       },
       handle2() {
         //  路径/home对应我在router目录下index.js中定义的path属性值
-        this.$router.push({ path: '/pie' })
+        this.$router.push({ path: '/pie1' + '/pie' })
       },
       handle3() {
         //  路径/home对应我在router目录下index.js中定义的path属性值
-        this.$router.push({ path: '/histogram' })
+        this.$router.push({ path: '/histogram1' + '/histogram' })
       },
       handle4() {
         //  路径/home对应我在router目录下index.js中定义的path属性值
-        this.$router.push({ path: '/circle' })
+        this.$router.push({ path: '/circle1' + '/circle' })
       },
     },
   }
