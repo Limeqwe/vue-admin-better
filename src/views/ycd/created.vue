@@ -144,7 +144,7 @@
         ],
         options2: [
           {
-            value: '0',
+            value: null,
             label: '自定义',
           },
           {
@@ -181,8 +181,9 @@
             },
             {
               type: 'number',
+              max: 450000,
               min: 100,
-              message: '必须大于100',
+              message: '必须大于100且小于45万',
               trigger: 'blur',
             },
           ],
@@ -194,8 +195,8 @@
             },
             {
               type: 'number',
-              min: 100,
-              message: '必须大于100',
+              min: 10,
+              message: '必须大于10',
               trigger: 'blur',
             },
           ],
@@ -207,8 +208,8 @@
             },
             {
               type: 'number',
-              min: 100,
-              message: '必须大于100',
+              min: 10,
+              message: '必须大于10',
               trigger: 'blur',
             },
           ],
@@ -220,8 +221,8 @@
             },
             {
               type: 'number',
-              min: 100,
-              message: '必须大于100',
+              min: 10,
+              message: '必须大于10',
               trigger: 'blur',
             },
           ],
@@ -330,12 +331,12 @@
             this.ruleForm.thirdWordNum = null
             this.ruleForm.fourthWordNum = null
             break
-          case '0':
-            this.ruleForm.fristWordNum = 0
-            this.ruleForm.secondWordNum = 0
-            this.ruleForm.thirdWordNum = 0
-            this.ruleForm.fourthWordNum = 0
-            break
+          // case '0':
+          //   this.ruleForm.fristWordNum = 0
+          //   this.ruleForm.secondWordNum = 0
+          //   this.ruleForm.thirdWordNum = 0
+          //   this.ruleForm.fourthWordNum = 0
+          //   break
           case '1':
             this.ruleForm.fristWordNum = 50
             this.ruleForm.secondWordNum = 30
@@ -357,29 +358,41 @@
         }
         console.log('ruleForm:', this.ruleForm)
       },
+      'ruleForm.fristWordNum'() {
+        if (!this.value2) {
+          this.ruleForm.secondWordNum = 100 - this.ruleForm.fristWordNum
+        }
+      },
+      'ruleForm.secondWordNum'() {
+        if (!this.value2) {
+          this.ruleForm.thirdWordNum =
+            100 - this.ruleForm.fristWordNum - this.ruleForm.secondWordNum
+        }
+      },
+      'ruleForm.thirdWordNum'() {
+        if (!this.value2) {
+          this.ruleForm.fourthWordNum =
+            100 -
+            this.ruleForm.fristWordNum -
+            this.ruleForm.secondWordNum -
+            this.ruleForm.thirdWordNum
+        }
+      },
     },
     methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
             // alert('submit!')
-            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+            this.$alert('生成过程大概需要几分钟，请稍后查看。', '数据生成中', {
               confirmButtonText: '确定',
-              cancelButtonText: '取消',
-              type: 'success',
+              // callback: (action) => {
+              //   this.$message({
+              //     type: 'info',
+              //     message: `action: ${action}`,
+              //   })
+              // },
             })
-              .then(() => {
-                this.$message({
-                  type: 'success',
-                  message: '删除成功!',
-                })
-              })
-              .catch(() => {
-                this.$message({
-                  type: 'info',
-                  message: '已取消删除',
-                })
-              })
           } else {
             console.log('error submit!!')
             return false
@@ -389,14 +402,6 @@
       resetForm(formName) {
         this.value1 = null
         this.value2 = null
-        // this.ruleForm.dataSize = null
-        // this.ruleForm.maxRecommend = null
-        // this.ruleForm.maxWeekRecommend = null
-        // this.ruleForm.maxClick = null
-        // this.ruleForm.fristWordNum = null
-        // this.ruleForm.secondWordNum = null
-        // this.ruleForm.thirdWordNum = null
-        // this.ruleForm.fourthWordNum = null
         this.$refs[formName].resetFields()
       },
     },
