@@ -686,43 +686,53 @@ export const asyncRoutes = [
   },
 
   {
-    path: '/pagetTest',
+    path: '/exhibition',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'pagetTest',
+    name: 'exhibition',
     meta: {
-      title: '展示',
+      title: '可视化',
       icon: 'dice',
       permissions: ['admin'],
     },
     children: [
       {
-        path: 'pagetTest1',
-        name: 'pagetTest1',
-        component: () => import('@/views/ycd/pagetTest'),
+        path: 'numRanklist',
+        name: 'numRanklist',
+        component: () => import('@/views/exhibition/numRanklist'),
         meta: {
-          title: 'pagetTest',
+          title: '字数排行榜',
           icon: 'marker',
           KeepAlive: true,
           permissions: ['admin'],
         },
       },
       {
-        path: 'sent',
-        name: 'sent',
-        component: () => import('@/views/ycd/sent'),
+        path: 'recommendedRanklist',
+        name: 'recommendedRanklist',
+        component: () => import('@/views/exhibition/recommendedRanklist'),
         meta: {
-          title: '传值',
+          title: '总推荐排行榜',
           icon: 'dice',
           permissions: ['admin'],
         },
       },
       {
-        path: 'accept',
-        name: 'accept',
-        component: () => import('@/views/ycd/accept'),
+        path: 'clickRanklist',
+        name: 'clickRanklist',
+        component: () => import('@/views/exhibition/clickRanklist'),
         meta: {
-          title: '收值',
+          title: '点击数排行榜',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'weekRecommendedRanklist',
+        name: 'weekRecommendedRanklist',
+        component: () => import('@/views/exhibition/weekRecommendedRanklist'),
+        meta: {
+          title: '周推荐排行榜',
           icon: 'dice',
           permissions: ['admin'],
         },
