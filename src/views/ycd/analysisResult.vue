@@ -2,9 +2,9 @@
   <div>
     <el-container>
       <el-main>
-        <el-row>
-          <el-col :span="5">
-            <el-select v-model="value" placeholder="请选择" style="width: 90%">
+        <el-form :inline="true" :model="selectForm" class="demo-form-inline">
+          <el-form-item label="可视化：">
+            <el-select v-model="selectForm.value" placeholder="请选择">
               <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -12,11 +12,11 @@
                 :value="item.value"
               ></el-option>
             </el-select>
-          </el-col>
-          <el-col :span="3">
-            <el-button type="primary" @click="handleLook">可视化查看</el-button>
-          </el-col>
-        </el-row>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" @click="handleLook">查看</el-button>
+          </el-form-item>
+        </el-form>
         <el-divider></el-divider>
         <el-table
           ref="tableSort"
@@ -96,7 +96,9 @@
           },
         ],
         ruleId: '',
-        value: '',
+        selectForm: {
+          value: '',
+        },
         // dataList: [], //表格源数据
         tempList: [], //表格显示数据
         currentPage: 1, //当前页
@@ -192,10 +194,7 @@
       tableSortChange() {},
       handleLike() {},
       handleLook() {
-        console.log('value:', this.value)
-      },
-      handleCheck(row) {
-        console.log('row:', row)
+        console.log('value:', this.selectForm.value)
         // this.$router.push({
         //   path: '/perfect/book',
         //   query: { sentBook: row },
@@ -229,8 +228,4 @@
   }
 </script>
 
-<style scoped>
-  .danger {
-    color: rgb(231, 0, 0);
-  }
-</style>
+<style scoped></style>
