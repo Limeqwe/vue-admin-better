@@ -564,7 +564,7 @@ export const asyncRoutes = [
     path: '/bline1',
     component: Layout,
     redirect: 'noRedirect',
-    name: '折线首页',
+    name: 'bline1',
     meta: {
       title: '折线',
       // icon: 'shopping-cart',
@@ -660,7 +660,7 @@ export const asyncRoutes = [
     path: '/try',
     component: Layout,
     redirect: 'noRedirect',
-    name: 'try',
+    name: 'try1',
     meta: {
       title: 'try',
       // icon: 'shopping-cart',
