@@ -469,221 +469,221 @@ export const asyncRoutes = [
   //     },
   //   ],
   // },
-  {
-    path: '/collect',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: '收藏首页面',
-    meta: {
-      title: '收藏页面',
-      icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
-    children: [
-      {
-        path: 'collect',
-        name: '收藏页面',
-        component: () => import('@/views/collect/index'),
-        meta: {
-          title: '收藏页面',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/create1',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: '生成首页面',
-    meta: {
-      title: '生成页面',
-      icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  // {
+  //   path: '/collect',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: '收藏首页面',
+  //   meta: {
+  //     title: '收藏页面',
+  //     icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
+  //   children: [
+  //     {
+  //       path: 'collect',
+  //       name: '收藏页面',
+  //       component: () => import('@/views/collect/index'),
+  //       meta: {
+  //         title: '收藏页面',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/create1',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: '生成首页面',
+  //   meta: {
+  //     title: '生成页面',
+  //     icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'create',
-        name: '生成页面',
-        component: () => import('@/views/create/index'),
-        meta: {
-          title: '生成页面',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/history1',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: '历史首任务',
-    meta: {
-      title: '历史任务',
-      icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  //   children: [
+  //     {
+  //       path: 'create',
+  //       name: '生成页面',
+  //       component: () => import('@/views/create/index'),
+  //       meta: {
+  //         title: '生成页面',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/history1',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: '历史首任务',
+  //   meta: {
+  //     title: '历史任务',
+  //     icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'history1',
-        name: '历史任务',
-        component: () => import('@/views/history/index'),
-        meta: {
-          title: '历史任务',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/show',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: '展示首页面',
-    meta: {
-      title: '展示页面',
-      icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  //   children: [
+  //     {
+  //       path: 'history1',
+  //       name: '历史任务',
+  //       component: () => import('@/views/history/index'),
+  //       meta: {
+  //         title: '历史任务',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/show',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: '展示首页面',
+  //   meta: {
+  //     title: '展示页面',
+  //     icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'show',
-        name: '展示选择页面',
-        component: () => import('@/views/show/index'),
-        meta: {
-          title: '展示选择页面',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/bline1',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: 'bline1',
-    meta: {
-      title: '折线',
-      // icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  //   children: [
+  //     {
+  //       path: 'show',
+  //       name: '展示选择页面',
+  //       component: () => import('@/views/show/index'),
+  //       meta: {
+  //         title: '展示选择页面',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/bline1',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: 'bline1',
+  //   meta: {
+  //     title: '折线',
+  //     // icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'bline',
-        name: '折线首页',
-        component: () => import('@/views/bline/index'),
-        meta: {
-          title: '折线',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/circle1',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: 'circle首页',
-    meta: {
-      title: 'circle',
-      // icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  //   children: [
+  //     {
+  //       path: 'bline',
+  //       name: '折线首页',
+  //       component: () => import('@/views/bline/index'),
+  //       meta: {
+  //         title: '折线',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/circle1',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: 'circle首页',
+  //   meta: {
+  //     title: 'circle',
+  //     // icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'circle',
-        name: 'circle',
-        component: () => import('@/views/circle/index'),
-        meta: {
-          title: 'circle',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/histogram1',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: '柱状图首页',
-    meta: {
-      title: '柱状图',
-      // icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  //   children: [
+  //     {
+  //       path: 'circle',
+  //       name: 'circle',
+  //       component: () => import('@/views/circle/index'),
+  //       meta: {
+  //         title: 'circle',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/histogram1',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: '柱状图首页',
+  //   meta: {
+  //     title: '柱状图',
+  //     // icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'histogram',
-        name: '柱状图',
-        component: () => import('@/views/histogram/index'),
-        meta: {
-          title: '柱状图',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/pie1',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: '饼图首页',
-    meta: {
-      title: '饼图',
-      // icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  //   children: [
+  //     {
+  //       path: 'histogram',
+  //       name: '柱状图',
+  //       component: () => import('@/views/histogram/index'),
+  //       meta: {
+  //         title: '小说作者柱状图',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/pie1',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: '饼图首页',
+  //   meta: {
+  //     title: '饼图',
+  //     // icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'pie',
-        name: '饼图',
-        component: () => import('@/views/pie/index'),
-        meta: {
-          title: '饼图',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
-  {
-    path: '/try',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: 'try1',
-    meta: {
-      title: 'try',
-      // icon: 'shopping-cart',
-      permissions: ['admin'],
-    },
+  //   children: [
+  //     {
+  //       path: 'pie',
+  //       name: '饼图',
+  //       component: () => import('@/views/pie/index'),
+  //       meta: {
+  //         title: '饼图',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '/try',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: 'try1',
+  //   meta: {
+  //     title: 'try',
+  //     // icon: 'shopping-cart',
+  //     permissions: ['admin'],
+  //   },
 
-    children: [
-      {
-        path: 'try',
-        name: 'try',
-        component: () => import('@/views/try/index'),
-        meta: {
-          title: 'try',
-          noKeepAlive: true,
-        },
-        children: null,
-      },
-    ],
-  },
+  //   children: [
+  //     {
+  //       path: 'try',
+  //       name: 'try',
+  //       component: () => import('@/views/try/index'),
+  //       meta: {
+  //         title: 'try',
+  //         noKeepAlive: true,
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
 
   {
     path: '/exhibition',
@@ -736,6 +736,27 @@ export const asyncRoutes = [
           icon: 'dice',
           permissions: ['admin'],
         },
+      },
+      {
+        path: 'authorRanklist',
+        name: 'authorRanklist',
+        component: () => import('@/views/exhibition/authorRanklist'),
+        meta: {
+          title: '小说作者排行榜',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'categorypie',
+        name: 'categorypie',
+        component: () => import('@/views/exhibition/categorypie'),
+        meta: {
+          title: '类别分析图',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+        children: null,
       },
     ],
   },

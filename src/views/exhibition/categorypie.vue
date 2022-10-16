@@ -39,49 +39,59 @@
       async getData() {
         var that = this
         postPieInformation(this.param).then((res) => {
-          console.log('成功,res.data.data = ', res.data.data)
+          // console.log('成功,res.data.data = ', res.data.data)
           that.allData = res.data.data
           that.updateChart()
         })
       },
+
       updateChart() {
-        const listName = this.allData.map((item) => {
-          return item.dataName
+        let arr = []
+        this.allData.forEach((item) => {
+          arr.push({
+            name: item.dataName, //将数组的conut值赋给value
+            value: item.percentge, //将数组的name值赋给name
+          })
         })
-        const information = this.allData.map((item) => {
-          return item.percentge
-        })
-        console.log(listName)
-        console.log(information)
+        console.log(arr)
         const option = {
           title: {
-            text: '周推荐排行榜',
+            text: '书籍便签饼状图',
+            left: 'center',
           },
           tooltip: {
-            trigger: 'axis',
-            axisPointer: {
-              type: 'shadow',
-            },
+            trigger: 'item',
           },
-          legend: {},
-          grid: {
-            left: '3%',
-            right: '4%',
-            bottom: '3%',
-            containLabel: true,
-          },
-          xAxis: {
-            type: 'value',
-            boundaryGap: [0, 0.01],
-          },
-          yAxis: {
-            type: 'category',
-            data: listName,
+          legend: {
+            orient: 'vertical',
+            left: 125,
           },
           series: [
             {
-              type: 'bar',
-              data: information,
+              name: '访问来源',
+              type: 'pie',
+              radius: ['40%', '70%'],
+              avoidLabelOverlap: false,
+              itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2,
+              },
+              label: {
+                show: false,
+                position: 'center',
+              },
+              emphasis: {
+                label: {
+                  show: true,
+                  fontSize: '40',
+                  fontWeight: 'bold',
+                },
+              },
+              labelLine: {
+                show: false,
+              },
+              data: arr,
             },
           ],
         }
@@ -96,7 +106,7 @@
 
 <style>
   .el-row {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
   last-child {
     margin-bottom: 0;
