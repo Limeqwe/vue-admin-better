@@ -36,7 +36,7 @@
     //  因为我的echarts在main.js入口文件里写，所以这里要用this代表Vue对象，并引用$echarts，属性，初始化echarts实例
     created() {
       // var that = this
-      // getList(this.listName).then((res) => {
+      // postListByListName(this.listName).then((res) => {
       //   console.log('成功,res.data.data', res.data.data)
       //   that.postValue = res.data.data
       // })
@@ -48,7 +48,7 @@
 
       async getData() {
         var that = this
-        getList(this.listName, this.DataOrigin).then((res) => {
+        postListByListName(this.param).then((res) => {
           console.log('成功,res.data.data = ', res.data.data)
           that.allData = res.data.data
           that.updateChart()
@@ -62,6 +62,7 @@
           console.log(item.Information)
           return item.Information
         })
+
         const option = {
           title: {
             text: '热度排行榜',

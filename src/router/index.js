@@ -134,6 +134,7 @@ export const asyncRoutes = [
       },
     ],
   },
+
   {
     path: '/perfect',
     component: Layout,
@@ -680,6 +681,52 @@ export const asyncRoutes = [
       },
     ],
   },
+
+  {
+    path: '/pagetTest',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'pagetTest',
+    meta: {
+      title: '展示',
+      icon: 'dice',
+      permissions: ['admin'],
+    },
+    children: [
+      {
+        path: 'pagetTest1',
+        name: 'pagetTest1',
+        component: () => import('@/views/ycd/pagetTest'),
+        meta: {
+          title: 'pagetTest',
+          icon: 'marker',
+          KeepAlive: true,
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'sent',
+        name: 'sent',
+        component: () => import('@/views/ycd/sent'),
+        meta: {
+          title: '传值',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'accept',
+        name: 'accept',
+        component: () => import('@/views/ycd/accept'),
+        meta: {
+          title: '收值',
+          icon: 'dice',
+          permissions: ['admin'],
+        },
+      },
+    ],
+  },
+
   {
     path: '*',
     redirect: '/404',

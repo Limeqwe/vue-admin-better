@@ -26,12 +26,12 @@ export function postInformation(param) {
   })
 }
 
-export function getList(listName) {
-  return request({
-    url: `/api/test/selectListByListName/${(listName, DataOrigin)}`,
-    method: 'get',
-  })
-}
+// export function getList(listName) {
+//   return request({
+//     url: `/api/test/selectListByListName/${(listName, DataOrigin)}`,
+//     method: 'get',
+//   })
+// }
 
 export function login(param) {
   return request({
