@@ -27,6 +27,12 @@
     },
     //  添加生命周期——钩子函数 加载init()方法
     // 在生命周期中实例化echarts对象（确保dom元素已经挂载到页面中）可以加一个nextTick
+
+    created() {
+      this.param.pieName = this.$route.query.value
+      this.param.dataOrigin = this.$route.query.id
+      console.log('accept:', this.param)
+    },
     mounted() {
       this.initChart()
       this.getData()
@@ -37,6 +43,9 @@
       },
 
       async getData() {
+        this.param.pieName = this.$route.query.value
+        this.param.dataOrigin = this.$route.query.id
+        console.log('accept:', this.param)
         var that = this
         postPieInformation(this.param).then((res) => {
           // console.log('成功,res.data.data = ', res.data.data)

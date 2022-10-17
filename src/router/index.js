@@ -98,16 +98,16 @@ export const asyncRoutes = [
       permissions: ['admin'],
     },
     children: [
-      {
-        path: 'collection',
-        name: 'collection',
-        component: () => import('@/views/ycd/collection'),
-        meta: {
-          title: '收藏页面',
-          icon: 'marker',
-          permissions: ['admin'],
-        },
-      },
+      // {
+      //   path: 'collection',
+      //   name: 'collection',
+      //   component: () => import('@/views/ycd/collection'),
+      //   meta: {
+      //     title: '收藏页面',
+      //     icon: 'marker',
+      //     permissions: ['admin'],
+      //   },
+      // },
       {
         path: 'recommended',
         name: 'recommended',

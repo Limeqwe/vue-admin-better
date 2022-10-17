@@ -2,20 +2,19 @@
   <div>
     <el-container>
       <el-main>
-        <el-form :inline="true" :model="formInline" class="demo-form-inline">
+        <!-- <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="书名:">
-            <el-input v-model="formInline.authorName"></el-input>
-          </el-form-item>
-          <!-- <big>or</big> -->
-          <el-form-item label="or   作者:">
             <el-input v-model="formInline.bookName"></el-input>
           </el-form-item>
+          <el-form-item label="or   作者:">
+            <el-input v-model="formInline.authorName"></el-input>
+          </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="onSubmit(formInline)">
+            <el-button type="primary" @click="handleSearch(formInline)">
               查询
             </el-button>
           </el-form-item>
-        </el-form>
+        </el-form> -->
         <el-divider></el-divider>
         <el-table
           ref="tableSort"
@@ -51,7 +50,7 @@
           ></el-table-column>
           <el-table-column
             show-overflow-tooltip
-            prop="words"
+            prop="wordsNum"
             label="字数(万字)"
             width="120"
             sortable
@@ -86,9 +85,9 @@
           ></el-table-column>
           <el-table-column show-overflow-tooltip label="操作" width="150">
             <template #default="{ row }">
-              <el-button type="text" @click="handleLike(row.id)">
+              <!-- <el-button type="text" @click="handleLike(row.id)">
                 收藏
-              </el-button>
+              </el-button> -->
               <el-button type="text" @click="handleCheck(row)">详情</el-button>
             </template>
           </el-table-column>
@@ -109,6 +108,11 @@
 </template>
 
 <script>
+  import {
+    selectWriterBook,
+    selectAllBook,
+    selectBookByBookName,
+  } from '@/api/testApi'
   export default {
     data() {
       return {
@@ -124,173 +128,34 @@
           bookName: '',
         },
         bookList: [],
-        dataList: [
-          {
-            id: 1,
-            bookName: '民国诡闻实录',
-            authorName: '王富贵',
-            serials: '连载中',
-            words: 210.1,
-            recommonend: 5444,
-            weekCRecommonend: 320,
-            click: 6420,
-            time: '21小时前',
-            introduce:
-              '民国初立，军阀割据，活人难生世道艰，死人复阳妖异现，此为众生鬼像也，兴安岭猎人岳观潮为救被出马仙诅咒的弟兄，惹上兴安岭原始神灵，从此踏上一条未知险途，兴安岭、长白山、贝加尔、神农架、罗布泊……他在乱世漂泊中辗转各地，探索诡异秘闻，寻觅扑朔迷离的真相！',
-            imgUrl:
-              'https://static.zongheng.com/upload/cover/ca/60/ca60ae14553d0703b82a9993f87af0b9.jpeg',
-            bookUrl: 'https://book.zongheng.com/book/1208354.html',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-          {
-            id: 2,
-            bookName: '民国诡闻',
-            authorName: '王富贵2222',
-            serials: '连载中',
-            words: 240.1,
-            recommonend: 3444,
-            weekCRecommonend: 320,
-            click: 7420,
-            time: '21小时前',
-            introduce: '测试测试测试测试',
-            imgUrl: '',
-            bookUrl: '',
-          },
-        ],
+        dataList: [],
       }
     },
+    watch: {
+      dataList() {
+        this.listLoading = !this.listLoading
+      },
+    },
     created() {
-      if (this.dataList) {
-        this.listLoading = false
-      }
+      selectAllBook().then((res) => {
+        // this.dataList = res.data.data
+        // this.delay(res.data.data)
+        console.log('res.data.data:', res.data.data)
+        // for (let i = 0; i < 100; i++) {
+        //   this.dataList[i] = res.data.data[i]
+        // }
+        this.dataList = res.data.data
+        this.tempList = res.data.data
+        this.total = res.data.data.length
+        console.log('dataList:', this.dataList)
+      })
+      // if (this.dataList) {
+      //   this.listLoading = false
+      // }
       // this.dataList = this.list
-      this.tempList = this.dataList
-      this.total = this.dataList.length
+      // for (let i = 0; i < this.dataList.length; i++) {
+      //   this.tempList[i] = this.dataList[i]
+      // }
       this.handleCurrentChange(1)
       console.log('dataList:', this.dataList)
       console.log('tempList:', this.tempList)
@@ -299,6 +164,21 @@
       setSelectRows() {},
       tableSortChange() {},
       handleLike() {},
+      delay(data) {
+        var that = this
+        var t
+        clearTimeout(t)
+        t = setTimeout(function () {
+          console.log('3秒后执行')
+          // that.dataList = data
+          // that.dataList = data.map((x) => x)
+          for (let i = 0; i < 100; i++) {
+            that.dataList[i] = data[i]
+          }
+          // console.log('dataList：', dataList)
+          // window.eventHub.$emit('refreshList', '')// 更新右侧列表状态
+        }, 2000)
+      },
       handleCheck(row) {
         console.log('row:', row)
         this.$router.push({
@@ -306,8 +186,29 @@
           query: { sentBook: row },
         })
       },
-      onSubmit(formInline) {
-        console.log('submit!:', formInline)
+      handleSearch(formInline) {
+        console.log('submit!:', formInline.authorName)
+        console.log('submit!:', formInline.bookName)
+        // selectWriterBook(this.formInline.authorName).then((res) => {
+        //   this.dataList = res.data.data
+        //   console.log('authorBook:', this.dataList)
+        // })
+        if (formInline.authorName !== null) {
+          selectWriterBook(formInline.authorName).then((res) => {
+            this.dataList = res.data.data
+            console.log('authorBook:', this.dataList)
+          })
+        } else if (formInline.bookName !== null) {
+          selectBookByBookName(formInline.bookName).then((res) => {
+            this.dataList = res.data.data
+            console.log('authorBook:', this.dataList)
+          })
+        } else {
+          selectAllBook().then((res) => {
+            this.dataList = res.data.data
+            console.log('res.data.data:', res.data.data)
+          })
+        }
       },
       //分页
       // 每页条数切换

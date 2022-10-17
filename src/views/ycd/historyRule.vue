@@ -81,7 +81,11 @@
               <el-button type="text" @click="handleAnalysis(row.id)">
                 分析
               </el-button>
-              <el-button class="danger" type="text" @click="handleCheck(row)">
+              <el-button
+                class="danger"
+                type="text"
+                @click="handleDelete(row.id)"
+              >
                 删除
               </el-button>
             </template>
@@ -103,6 +107,7 @@
 </template>
 
 <script>
+  import { getRule, deleteRule } from '@/api/testApi'
   export default {
     data() {
       return {
@@ -114,148 +119,26 @@
         listLoading: true,
         elementLoadingText: '后台处理中。。。。',
         ruleList: [],
-        dataList: [
-          {
-            id: 1,
-            dataSize: 10000,
-            maxRecommend: 2000,
-            maxWeekRecommend: 2000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-          {
-            id: 2,
-            dataSize: 20000,
-            maxRecommend: 4000,
-            maxWeekRecommend: 4000,
-            maxClick: 50000,
-            fristWordNum: 50,
-            secondWordNum: 20,
-            thirdWordNum: 20,
-            fourthWordNum: 10,
-            createdDate: '2022-10-16 19:02',
-          },
-        ],
+        dataList: [],
       }
     },
     created() {
+      getRule().then((res) => {
+        console.log('res.value:', res.value)
+        console.log('res.data.data:', res.data.data)
+        // for(let val of res.data.data){
+        //   this.$set(val)
+        // }
+        this.delay()
+        this.dataList = res.data.data
+        this.tempList = this.dataList
+        console.log('this.dataList', this.dataList)
+      })
       if (this.dataList) {
         this.listLoading = false
       }
       // this.dataList = this.list
-      this.tempList = this.dataList
+      // console.log('this.tempList', this.tempList)
       this.total = this.dataList.length
       this.handleCurrentChange(1)
       console.log('dataList:', this.dataList)
@@ -264,7 +147,25 @@
     methods: {
       setSelectRows() {},
       tableSortChange() {},
-      handleLike() {},
+      getTable() {},
+      delay() {
+        var self = this
+        var t
+        clearTimeout(t)
+        t = setTimeout(function () {
+          console.log('3秒后执行')
+          // window.eventHub.$emit('refreshList', '')// 更新右侧列表状态
+        }, 2000)
+      },
+      handleDelete(id) {
+        deleteRule(id).then((res) => {
+          console.log('res.data.data:', res.data.data)
+          getRule().then((res) => {
+            console.log('res.data.data:', res.data.data)
+            this.dataList = res.data.data
+          })
+        })
+      },
       handleAnalysis(id) {
         console.log('id:', id)
         this.$router.push({

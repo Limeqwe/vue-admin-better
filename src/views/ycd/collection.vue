@@ -50,7 +50,7 @@
           ></el-table-column>
           <el-table-column
             show-overflow-tooltip
-            prop="words"
+            prop="wordsNum"
             label="字数(万字)"
             sortable
           ></el-table-column>

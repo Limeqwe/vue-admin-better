@@ -66,6 +66,7 @@
 </template>
 
 <script>
+  import { selectListByRuleId } from '@/api/testApi'
   export default {
     data() {
       return {
@@ -75,24 +76,24 @@
             label: '字数排行榜',
           },
           {
-            value: '总推荐排行榜',
-            label: '总推荐排行榜',
+            value: '总推荐数排行榜',
+            label: '总推荐数排行榜',
           },
           {
             value: '点击数排行榜',
             label: '点击数排行榜',
           },
           {
-            value: '周推荐排行榜',
-            label: '周推荐排行榜',
+            value: '周推荐数排行榜',
+            label: '周推荐数排行榜',
           },
           {
-            value: '分类统计饼图',
-            label: '分类统计饼图',
+            value: '小说类型的数量排行榜',
+            label: '小说类型的数量排行榜',
           },
           {
-            value: '小说作者柱状图',
-            label: '小说作者柱状图',
+            value: '小说作者的作品数量排行榜',
+            label: '小说作者的作品数量排行榜',
           },
         ],
         ruleId: '',
@@ -107,85 +108,27 @@
         listLoading: true,
         elementLoadingText: '后台处理中。。。。',
         analysisResultList: [],
-        dataList: [
-          {
-            id: 1,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 2,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 3,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 4,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 5,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 6,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 7,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 8,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 9,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 10,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-          {
-            id: 11,
-            listName: '总推荐排行榜',
-            info: '活着',
-            number: 32424.3,
-          },
-        ],
+        dataList: [],
       }
     },
     created() {
       this.ruleId = this.$route.query.sentRuleId
       console.log('ruleId:', this.ruleId)
+      // this.ruleId = 0
+      // selectListByRuleId(this.ruleId).then((res) => {
+      selectListByRuleId(this.ruleId).then((res) => {
+        console.log('res.data.data:', res.data.data)
+        console.log('res.data:', res.data)
+        // console.log('res.value:', res.value)
+        this.dataList = res.data.data
+        this.tempList = res.data.data
+        this.total = res.data.data.length
+      })
       if (this.dataList) {
         this.listLoading = false
       }
       // this.dataList = this.list
-      this.tempList = this.dataList
-      this.total = this.dataList.length
+
       this.handleCurrentChange(1)
       console.log('dataList:', this.dataList)
       console.log('tempList:', this.tempList)
@@ -196,6 +139,44 @@
       handleLike() {},
       handleLook() {
         console.log('value:', this.selectForm.value)
+        switch (this.selectForm.value) {
+          case '字数排行榜':
+            this.$router.push({
+              path: '/exhibition/numRanklist',
+              query: { id: this.ruleId, value: this.selectForm.value },
+            })
+            break
+          case '总推荐数排行榜':
+            this.$router.push({
+              path: '/exhibition/recommendedRanklist',
+              query: { id: this.ruleId, value: this.selectForm.value },
+            })
+            break
+          case '点击数排行榜':
+            this.$router.push({
+              path: '/exhibition/clickRanklist',
+              query: { id: this.ruleId, value: this.selectForm.value },
+            })
+            break
+          case '周推荐数排行榜':
+            this.$router.push({
+              path: '/exhibition/weekRecommendedRanklist',
+              query: { id: this.ruleId, value: this.selectForm.value },
+            })
+            break
+          case '小说类型的数量排行榜':
+            this.$router.push({
+              path: '/exhibition/categorypie',
+              query: { id: this.ruleId, value: this.selectForm.value },
+            })
+            break
+          case '小说作者的作品数量排行榜':
+            this.$router.push({
+              path: '/exhibition/authorRanklist',
+              query: { id: this.ruleId, value: this.selectForm.value },
+            })
+            break
+        }
         // this.$router.push({
         //   path: '/perfect/book',
         //   query: { sentBook: row },

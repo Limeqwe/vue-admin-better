@@ -121,6 +121,7 @@
 </template>
 
 <script>
+  import { setRule } from '@/api/testApi'
   export default {
     data() {
       return {
@@ -383,16 +384,16 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            // alert('submit!')
-            this.$alert('生成过程大概需要几分钟，请稍后查看。', '数据生成中', {
-              confirmButtonText: '确定',
-              // callback: (action) => {
-              //   this.$message({
-              //     type: 'info',
-              //     message: `action: ${action}`,
-              //   })
-              // },
-            })
+            this.$alert(
+              '生成过程大概需要几分钟，请稍后查看。',
+              '数据生成中',
+              {
+                confirmButtonText: '确定',
+              },
+              setRule(this.ruleForm).then((res) => {
+                console.log('res.data.data:', res.data.data)
+              })
+            )
           } else {
             console.log('error submit!!')
             return false

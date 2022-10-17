@@ -74,62 +74,28 @@
   </div>
 </template>
 <script>
+  import { RandomSelectBook } from '@/api/testApi'
   export default {
     data() {
       return {
-        fristBook: [
-          {
-            id: 1,
-            bookName: '民国诡闻实录',
-            authorName: '王富贵',
-            serials: '连载中',
-            words: 210.1,
-            recommonend: 5444,
-            weekCRecommonend: 320,
-            click: 6420,
-            time: '21小时前',
-            introduce:
-              '民国初立，军阀割据，活人难生世道艰，死人复阳妖异现，此为众生鬼像也，兴安岭猎人岳观潮为救被出马仙诅咒的弟兄，惹上兴安岭原始神灵，从此踏上一条未知险途，兴安岭、长白山、贝加尔、神农架、罗布泊……他在乱世漂泊中辗转各地，探索诡异秘闻，寻觅扑朔迷离的真相！',
-            imgUrl:
-              'https://static.zongheng.com/upload/cover/ca/60/ca60ae14553d0703b82a9993f87af0b9.jpeg',
-            bookUrl: 'https://book.zongheng.com/book/1208354.html',
-          },
-        ],
-        secondBook: [
-          {
-            id: 1,
-            bookName: '民国诡闻实录',
-            authorName: '王富贵',
-            serials: '连载中',
-            words: 210.1,
-            recommonend: 5444,
-            weekCRecommonend: 320,
-            click: 6420,
-            time: '21小时前',
-            introduce:
-              '民国初立，军阀割据，活人难生世道艰，死人复阳妖异现，此为众生鬼像也，兴安岭猎人岳观潮为救被出马仙诅咒的弟兄，惹上兴安岭原始神灵，从此踏上一条未知险途，兴安岭、长白山、贝加尔、神农架、罗布泊……他在乱世漂泊中辗转各地，探索诡异秘闻，寻觅扑朔迷离的真相！',
-            imgUrl:
-              'https://static.zongheng.com/upload/cover/ca/60/ca60ae14553d0703b82a9993f87af0b9.jpeg',
-            bookUrl: 'https://book.zongheng.com/book/1208354.html',
-          },
-          {
-            id: 1,
-            bookName: '民国诡闻实录',
-            authorName: '王富贵',
-            serials: '连载中',
-            words: 210.1,
-            recommonend: 5444,
-            weekCRecommonend: 320,
-            click: 6420,
-            time: '21小时前',
-            introduce:
-              '民国初立，军阀割据，活人难生世道艰，死人复阳妖异现，此为众生鬼像也，兴安岭猎人岳观潮为救被出马仙诅咒的弟兄，惹上兴安岭原始神灵，从此踏上一条未知险途，兴安岭、长白山、贝加尔、神农架、罗布泊……他在乱世漂泊中辗转各地，探索诡异秘闻，寻觅扑朔迷离的真相！',
-            imgUrl:
-              'https://static.zongheng.com/upload/cover/ca/60/ca60ae14553d0703b82a9993f87af0b9.jpeg',
-            bookUrl: 'https://book.zongheng.com/book/1208354.html',
-          },
-        ],
+        fristBook: [],
+        secondBook: [],
+        param: {
+          serial: '',
+        },
       }
+    },
+    created() {
+      this.param.serial = '已完结'
+      RandomSelectBook(this.param).then((res) => {
+        this.fristBook = res.data.data
+        console.log('完结：', this.fristBook)
+      })
+      this.param.serial = '连载中'
+      RandomSelectBook(this.param).then((res) => {
+        this.secondBook = res.data.data
+        console.log('连载：', this.secondBook)
+      })
     },
     methods: {
       handleJump(item) {
