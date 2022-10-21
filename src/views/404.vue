@@ -32,7 +32,7 @@
             <div class="bullshit-oops">{{ oops }}</div>
             <div class="bullshit-headline">{{ headline }}</div>
             <div class="bullshit-info">{{ info }}</div>
-            <a class="bullshit-return-home" href="#/index">
+            <a class="bullshit-return-home" href="#/perfect/recommended">
               {{ jumpTime }}s&nbsp;{{ btn }}
             </a>
           </div>

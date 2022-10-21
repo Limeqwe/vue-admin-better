@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <el-main>
-        <!-- <el-form :inline="true" :model="formInline" class="demo-form-inline">
+        <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="书名:">
             <el-input v-model="formInline.bookName"></el-input>
           </el-form-item>
@@ -10,11 +10,14 @@
             <el-input v-model="formInline.authorName"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="handleSearch(formInline)">
+            <el-button
+              type="primary"
+              @click="handleSearch(formInline.bookName, formInline.authorName)"
+            >
               查询
             </el-button>
           </el-form-item>
-        </el-form> -->
+        </el-form>
         <el-divider></el-divider>
         <el-table
           ref="tableSort"
@@ -133,7 +136,8 @@
     },
     watch: {
       dataList() {
-        this.listLoading = !this.listLoading
+        if (this.dataList) this.listLoading = false
+        else this.listLoading = true
       },
     },
     created() {
@@ -164,6 +168,15 @@
       setSelectRows() {},
       tableSortChange() {},
       handleLike() {},
+      refresh() {
+        selectAllBook().then((res) => {
+          console.log('res.data.data:', res.data.data)
+          this.dataList = res.data.data
+          this.tempList = res.data.data
+          this.total = res.data.data.length
+          console.log('dataList:', this.dataList)
+        })
+      },
       delay(data) {
         var that = this
         var t
@@ -186,26 +199,29 @@
           query: { sentBook: row },
         })
       },
-      handleSearch(formInline) {
-        console.log('submit!:', formInline.authorName)
-        console.log('submit!:', formInline.bookName)
-        // selectWriterBook(this.formInline.authorName).then((res) => {
+      handleSearch(bookName, authorName) {
+        console.log('submit!:', authorName)
+        console.log('submit!:', bookName)
+        // selectWriterBook(this.authorName).then((res) => {
         //   this.dataList = res.data.data
         //   console.log('authorBook:', this.dataList)
         // })
-        if (formInline.authorName !== null) {
-          selectWriterBook(formInline.authorName).then((res) => {
+        if (authorName) {
+          selectWriterBook(authorName).then((res) => {
             this.dataList = res.data.data
+            this.tempList = res.data.data
             console.log('authorBook:', this.dataList)
           })
-        } else if (formInline.bookName !== null) {
-          selectBookByBookName(formInline.bookName).then((res) => {
+        } else if (bookName) {
+          selectBookByBookName(bookName).then((res) => {
             this.dataList = res.data.data
+            this.tempList = res.data.data
             console.log('authorBook:', this.dataList)
           })
         } else {
           selectAllBook().then((res) => {
             this.dataList = res.data.data
+            this.tempList = res.data.data
             console.log('res.data.data:', res.data.data)
           })
         }

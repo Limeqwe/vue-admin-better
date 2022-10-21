@@ -42,50 +42,50 @@ export const constantRoutes = [
 ]
 
 export const asyncRoutes = [
-  {
-    path: '/pagetTest',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: 'pagetTest',
-    meta: {
-      title: '开发中',
-      icon: 'dice',
-      permissions: ['admin'],
-    },
-    children: [
-      {
-        path: 'pagetTest1',
-        name: 'pagetTest1',
-        component: () => import('@/views/ycd/pagetTest'),
-        meta: {
-          title: 'pagetTest',
-          icon: 'marker',
-          KeepAlive: true,
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'sent',
-        name: 'sent',
-        component: () => import('@/views/ycd/sent'),
-        meta: {
-          title: '传值',
-          icon: 'dice',
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'accept',
-        name: 'accept',
-        component: () => import('@/views/ycd/accept'),
-        meta: {
-          title: '收值',
-          icon: 'dice',
-          permissions: ['admin'],
-        },
-      },
-    ],
-  },
+  // {
+  //   path: '/pagetTest',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: 'pagetTest',
+  //   meta: {
+  //     title: '开发中',
+  //     icon: 'dice',
+  //     permissions: ['admin'],
+  //   },
+  //   children: [
+  //     {
+  //       path: 'pagetTest1',
+  //       name: 'pagetTest1',
+  //       component: () => import('@/views/ycd/pagetTest'),
+  //       meta: {
+  //         title: 'pagetTest',
+  //         icon: 'marker',
+  //         KeepAlive: true,
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     {
+  //       path: 'sent',
+  //       name: 'sent',
+  //       component: () => import('@/views/ycd/sent'),
+  //       meta: {
+  //         title: '传值',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     {
+  //       path: 'accept',
+  //       name: 'accept',
+  //       component: () => import('@/views/ycd/accept'),
+  //       meta: {
+  //         title: '收值',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //   ],
+  // },
 
   {
     path: '/perfect',
@@ -93,7 +93,7 @@ export const asyncRoutes = [
     redirect: 'noRedirect',
     name: 'perfect',
     meta: {
-      title: '完善中',
+      title: '专综',
       icon: 'dice',
       permissions: ['admin'],
     },
@@ -187,23 +187,33 @@ export const asyncRoutes = [
     ],
   },
 
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/index',
-    children: [
-      {
-        path: 'index',
-        name: 'Index',
-        component: () => import('@/views/index/index'),
-        meta: {
-          title: '首页',
-          icon: 'home',
-          affix: true,
-        },
-      },
-    ],
-  },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/index',
+  //   children: [
+  //     {
+  //       path: 'recommended',
+  //       name: 'recommended',
+  //       component: () => import('@/views/ycd/recommended'),
+  //       meta: {
+  //         title: '随机推荐',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     // {
+  //     //   path: 'index',
+  //     //   name: 'Index',
+  //     //   component: () => import('@/views/index/index'),
+  //     //   meta: {
+  //     //     title: '首页',
+  //     //     icon: 'home',
+  //     //     affix: true,
+  //     //   },
+  //     // },
+  //   ],
+  // },
 
   // {
   //   path: '/vab',

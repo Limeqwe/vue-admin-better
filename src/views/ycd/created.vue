@@ -182,9 +182,9 @@
             },
             {
               type: 'number',
-              max: 450000,
+              // max: 450000,
               min: 100,
-              message: '必须大于100且小于45万',
+              message: '必须大于100',
               trigger: 'blur',
             },
           ],

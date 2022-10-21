@@ -15,6 +15,7 @@
           </el-form-item>
           <el-form-item>
             <el-button type="primary" @click="handleLook">查看</el-button>
+            <el-button type="primary" @click="refresh">刷新</el-button>
           </el-form-item>
         </el-form>
         <el-divider></el-divider>
@@ -111,6 +112,19 @@
         dataList: [],
       }
     },
+    watch: {
+      dataList() {
+        this.listLoading = !this.listLoading
+        var t
+        clearTimeout(t)
+        t = setTimeout(function () {
+          console.log('3秒后执行')
+          self.listLoading = false
+          // window.eventHub.$emit('refreshList', '')// 更新右侧列表状态
+        }, 2000)
+        this.delay()
+      },
+    },
     created() {
       this.ruleId = this.$route.query.sentRuleId
       console.log('ruleId:', this.ruleId)
@@ -124,9 +138,9 @@
         this.tempList = res.data.data
         this.total = res.data.data.length
       })
-      if (this.dataList) {
-        this.listLoading = false
-      }
+      // if (this.dataList) {
+      //   this.listLoading = false
+      // }
       // this.dataList = this.list
 
       this.handleCurrentChange(1)
@@ -137,6 +151,26 @@
       setSelectRows() {},
       tableSortChange() {},
       handleLike() {},
+      delay() {
+        var self = this
+        var t
+        clearTimeout(t)
+        t = setTimeout(function () {
+          console.log('3秒后执行')
+          self.listLoading = false
+          // window.eventHub.$emit('refreshList', '')// 更新右侧列表状态
+        }, 2000)
+      },
+      refresh() {
+        selectListByRuleId(this.ruleId).then((res) => {
+          console.log('res.data.data:', res.data.data)
+          console.log('res.data:', res.data)
+          // console.log('res.value:', res.value)
+          this.dataList = res.data.data
+          this.tempList = res.data.data
+          this.total = res.data.data.length
+        })
+      },
       handleLook() {
         console.log('value:', this.selectForm.value)
         switch (this.selectForm.value) {

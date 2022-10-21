@@ -48,7 +48,8 @@
         console.log('accept:', this.param)
         var that = this
         postPieInformation(this.param).then((res) => {
-          // console.log('成功,res.data.data = ', res.data.data)
+          console.log('成功,res.data.data = ', res.data)
+          console.log('成功,res.data.data = ', res.data.data)
           that.allData = res.data.data
           that.updateChart()
         })

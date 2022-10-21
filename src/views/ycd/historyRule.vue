@@ -2,6 +2,7 @@
   <div>
     <el-container>
       <el-main>
+        <el-button type="primary" @click="refresh">刷新</el-button>
         <el-table
           ref="tableSort"
           v-loading="listLoading"
@@ -148,6 +149,19 @@
       setSelectRows() {},
       tableSortChange() {},
       getTable() {},
+      refresh() {
+        getRule().then((res) => {
+          console.log('res.value:', res.value)
+          console.log('res.data.data:', res.data.data)
+          // for(let val of res.data.data){
+          //   this.$set(val)
+          // }
+          this.delay()
+          this.dataList = res.data.data
+          this.tempList = this.dataList
+          console.log('this.dataList', this.dataList)
+        })
+      },
       delay() {
         var self = this
         var t
@@ -163,6 +177,7 @@
           getRule().then((res) => {
             console.log('res.data.data:', res.data.data)
             this.dataList = res.data.data
+            this.refresh()
           })
         })
       },

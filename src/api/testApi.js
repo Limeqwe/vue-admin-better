@@ -59,7 +59,7 @@ export function getRule() {
 export function setRule(param) {
   return request({
     url: `/api/test/setRule`,
-    // baseURL: 'http://localhost:8090',
+    baseURL: 'http://localhost:8080',
     method: 'post',
     params: param,
   })

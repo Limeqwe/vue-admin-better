@@ -5,15 +5,25 @@ const data = [
     redirect: 'index',
     children: [
       {
-        path: 'index',
-        name: 'Index',
-        component: '@/views/index/index',
+        path: 'recommended',
+        name: 'recommended',
+        component: () => import('@/views/ycd/recommended'),
         meta: {
-          title: '首页',
-          icon: 'home',
-          affix: true,
+          title: '随机推荐',
+          icon: 'dice',
+          permissions: ['admin'],
         },
       },
+      // {
+      //   path: 'index',
+      //   name: 'Index',
+      //   component: '@/views/index/index',
+      //   meta: {
+      //     title: '首页',
+      //     icon: 'home',
+      //     affix: true,
+      //   },
+      // },
     ],
   },
   {
