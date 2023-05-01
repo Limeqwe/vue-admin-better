@@ -35,15 +35,14 @@
             <el-input
               v-model.trim="form.phone"
               type="text"
-              placeholder="请输入手机号"
-              maxlength="11"
+              placeholder="请输入账号"
               show-word-limit
               autocomplete="off"
             >
               <vab-icon slot="prefix" :icon="['fas', 'mobile-alt']"></vab-icon>
             </el-input>
           </el-form-item>
-          <el-form-item prop="phoneCode" style="position: relative">
+          <!-- <el-form-item prop="phoneCode" style="position: relative">
             <el-input
               v-model.trim="form.phoneCode"
               type="text"
@@ -62,7 +61,7 @@
             >
               {{ phoneCode }}
             </el-button>
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item prop="password">
             <el-input
               v-model.trim="form.password"

@@ -4,7 +4,7 @@
 
 <script>
   import * as echarts from 'echarts'
-  import { postPieInformation } from '../../api/testApi'
+  import { postPieInformation } from '../../api/betaApi'
   export default {
     data() {
       return {
@@ -36,22 +36,58 @@
           const yData = this.allData.map((item) => {
             return item.percentge
           })
-          console.log('xData', this.xData)
-          console.log('yData', this.yData)
-          this.initEcharts(xData, yData)
+          let arr = []
+          this.allData.forEach((item) => {
+            arr.push({
+              name: item.dataName,
+              value: item.percentge,
+            })
+          })
+          console.log('xData', xData)
+          console.log('yData', yData)
+          this.initEcharts(arr)
         })
       },
-      initEcharts(xData, yData) {
+      initEcharts(arr) {
         // 基本柱状图
         const option = {
-          xAxis: {
-            data: xData,
+          title: {
+            text: '          小说类型数量排行榜',
           },
-          yAxis: {},
+          tooltip: {
+            trigger: 'item',
+          },
+          legend: {
+            orient: 'vertical',
+            top: 50,
+            left: 300,
+          },
           series: [
             {
-              type: 'bar', //形状为柱状图
-              data: yData,
+              name: '数量',
+              type: 'pie',
+              radius: ['40%', '70%'],
+              avoidLabelOverlap: false,
+              itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2,
+              },
+              label: {
+                show: false,
+                position: 'center',
+              },
+              emphasis: {
+                label: {
+                  show: true,
+                  fontSize: '40',
+                  fontWeight: 'bold',
+                },
+              },
+              labelLine: {
+                show: false,
+              },
+              data: arr,
             },
           ],
         }
@@ -65,3 +101,8 @@
     },
   }
 </script>
+<style scoped>
+  #mychart {
+    margin-top: 30px;
+  }
+</style>

@@ -1,5 +1,6 @@
 <template>
   <div ref="seller_ref" class="home">
+    <div>11111111111</div>
     <el-row :gutter="20">
       <el-col :span="24">
         <!-- <div id="chart" ref="chart" style="width: 100%; height: 400px"></div> -->

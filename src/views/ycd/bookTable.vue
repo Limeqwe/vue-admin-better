@@ -2,6 +2,7 @@
   <div>
     <el-container>
       <el-main>
+        <!--  -->
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="书名:">
             <el-input v-model="formInline.bookName"></el-input>
@@ -88,9 +89,6 @@
           ></el-table-column>
           <el-table-column show-overflow-tooltip label="操作" width="150">
             <template #default="{ row }">
-              <!-- <el-button type="text" @click="handleLike(row.id)">
-                收藏
-              </el-button> -->
               <el-button type="text" @click="handleCheck(row)">详情</el-button>
             </template>
           </el-table-column>
@@ -115,7 +113,7 @@
     selectWriterBook,
     selectAllBook,
     selectBookByBookName,
-  } from '@/api/testApi'
+  } from '@/api/betaApi'
   export default {
     data() {
       return {

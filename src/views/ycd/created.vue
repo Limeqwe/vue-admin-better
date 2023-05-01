@@ -2,11 +2,9 @@
   <div>
     <el-container>
       <el-main>
-        <!-- <p>规则生成</p> -->
         <el-form
           ref="ruleForm"
           label-width="150px"
-          class="demo-ruleForm"
           :model="ruleForm"
           :rules="rules"
         >
@@ -97,10 +95,6 @@
               </el-form-item>
             </el-col>
           </el-row>
-          <!-- <el-form-item>
-            <p>规则生成</p>
-          </el-form-item> -->
-
           <el-row>
             <el-col :span="7">&nbsp;</el-col>
             <el-col :span="17">
@@ -121,7 +115,7 @@
 </template>
 
 <script>
-  import { setRule } from '@/api/testApi'
+  import { setRule } from '@/api/betaApi'
   export default {
     data() {
       return {

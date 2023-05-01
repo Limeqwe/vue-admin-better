@@ -4,7 +4,7 @@
 
 <script>
   import * as echarts from 'echarts'
-  import { postPieInformation } from '../../api/testApi'
+  import { postPieInformation } from '../../api/betaApi'
   export default {
     data() {
       return {
@@ -36,18 +36,23 @@
           const yData = this.allData.map((item) => {
             return item.percentge
           })
-          console.log('xData', this.xData)
-          console.log('yData', this.yData)
+          console.log('xData', xData)
+          console.log('yData', yData)
           this.initEcharts(xData, yData)
         })
       },
       initEcharts(xData, yData) {
         // 基本柱状图
         const option = {
+          title: {
+            text: '          总推荐数排行榜',
+          },
           xAxis: {
             data: xData,
           },
-          yAxis: {},
+          yAxis: {
+            scale: true,
+          },
           series: [
             {
               type: 'bar', //形状为柱状图
@@ -65,3 +70,8 @@
     },
   }
 </script>
+<style scoped>
+  #mychart {
+    margin-top: 30px;
+  }
+</style>

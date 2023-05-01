@@ -108,7 +108,7 @@
 </template>
 
 <script>
-  import { getRule, deleteRule } from '@/api/testApi'
+  import { getRule, deleteRule } from '@/api/betaApi'
   export default {
     data() {
       return {

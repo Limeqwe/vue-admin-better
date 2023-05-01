@@ -67,7 +67,7 @@
 </template>
 
 <script>
-  import { selectListByRuleId } from '@/api/testApi'
+  import { selectListByRuleId } from '@/api/betaApi'
   export default {
     data() {
       return {
@@ -176,37 +176,38 @@
         switch (this.selectForm.value) {
           case '字数排行榜':
             this.$router.push({
-              path: '/exhibition/numRanklist',
+              // path: '/exhibition/numRanklist',
+              path: '/visualization/numRanklist',
               query: { id: this.ruleId, value: this.selectForm.value },
             })
             break
           case '总推荐数排行榜':
             this.$router.push({
-              path: '/exhibition/recommendedRanklist',
+              path: '/visualization/recommendedRanklist',
               query: { id: this.ruleId, value: this.selectForm.value },
             })
             break
           case '点击数排行榜':
             this.$router.push({
-              path: '/exhibition/clickRanklist',
+              path: '/visualization/clickRanklist',
               query: { id: this.ruleId, value: this.selectForm.value },
             })
             break
           case '周推荐数排行榜':
             this.$router.push({
-              path: '/exhibition/weekRecommendedRanklist',
+              path: '/visualization/weekRecommendedRanklist',
               query: { id: this.ruleId, value: this.selectForm.value },
             })
             break
           case '小说类型的数量排行榜':
             this.$router.push({
-              path: '/exhibition/categorypie',
+              path: '/visualization/categorypie',
               query: { id: this.ruleId, value: this.selectForm.value },
             })
             break
           case '小说作者的作品数量排行榜':
             this.$router.push({
-              path: '/exhibition/authorRanklist',
+              path: '/visualization/authorRanklist',
               query: { id: this.ruleId, value: this.selectForm.value },
             })
             break

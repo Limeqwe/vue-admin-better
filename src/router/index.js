@@ -93,21 +93,11 @@ export const asyncRoutes = [
     redirect: 'noRedirect',
     name: 'perfect',
     meta: {
-      title: '专综',
+      title: '系统功能Beta',
       icon: 'dice',
       permissions: ['admin'],
     },
     children: [
-      // {
-      //   path: 'collection',
-      //   name: 'collection',
-      //   component: () => import('@/views/ycd/collection'),
-      //   meta: {
-      //     title: '收藏页面',
-      //     icon: 'marker',
-      //     permissions: ['admin'],
-      //   },
-      // },
       {
         path: 'recommended',
         name: 'recommended',
@@ -186,7 +176,164 @@ export const asyncRoutes = [
       },
     ],
   },
-
+  {
+    path: '/visualization',
+    component: Layout,
+    redirect: 'noRedirect',
+    name: 'visualization',
+    meta: {
+      title: '可视化Beta',
+      icon: 'dice',
+      permissions: ['admin'],
+    },
+    children: [
+      // {
+      //   path: 'test',
+      //   name: 'test',
+      //   component: () => import('@/views/test/index'),
+      //   meta: {
+      //     title: '测试页面',
+      //     icon: 'marker',
+      //     permissions: ['admin'],
+      //   },
+      // },
+      {
+        path: 'numRanklist',
+        name: 'numRanklist',
+        component: () => import('@/views/test/numRanklist'),
+        meta: {
+          title: '字数排行榜',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'recommendedRanklist',
+        name: 'recommendedRanklist',
+        component: () => import('@/views/test/recommendedRanklist'),
+        meta: {
+          title: '总推荐排行榜',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'clickRanklist',
+        name: 'clickRanklist',
+        component: () => import('@/views/test/clickRanklist'),
+        meta: {
+          title: '点击数排行榜',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'weekRecommendedRanklist',
+        name: 'weekRecommendedRanklist',
+        component: () => import('@/views/test/weekRecommendedRanklist'),
+        meta: {
+          title: '周推荐数排行榜',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'categorypie',
+        name: 'categorypie',
+        component: () => import('@/views/test/categorypie'),
+        meta: {
+          title: '小说类型数量排行榜',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+      {
+        path: 'authorRanklist',
+        name: 'authorRanklist',
+        component: () => import('@/views/test/authorRanklist'),
+        meta: {
+          title: '作者作品数量排行榜',
+          icon: 'marker',
+          permissions: ['admin'],
+        },
+      },
+    ],
+  },
+  // {
+  //   path: '/exhibition',
+  //   component: Layout,
+  //   redirect: 'noRedirect',
+  //   name: 'exhibition',
+  //   meta: {
+  //     title: '可视化',
+  //     icon: 'dice',
+  //     permissions: ['admin'],
+  //   },
+  //   children: [
+  //     {
+  //       path: 'numRanklist',
+  //       name: 'numRanklist',
+  //       component: () => import('@/views/exhibition/numRanklist'),
+  //       meta: {
+  //         title: '字数排行榜',
+  //         icon: 'marker',
+  //         KeepAlive: true,
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     {
+  //       path: 'recommendedRanklist',
+  //       name: 'recommendedRanklist',
+  //       component: () => import('@/views/exhibition/recommendedRanklist'),
+  //       meta: {
+  //         title: '总推荐排行榜',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     {
+  //       path: 'clickRanklist',
+  //       name: 'clickRanklist',
+  //       component: () => import('@/views/exhibition/clickRanklist'),
+  //       meta: {
+  //         title: '点击数排行榜',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     {
+  //       path: 'weekRecommendedRanklist',
+  //       name: 'weekRecommendedRanklist',
+  //       component: () => import('@/views/exhibition/weekRecommendedRanklist'),
+  //       meta: {
+  //         title: '周推荐排行榜',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     {
+  //       path: 'authorRanklist',
+  //       name: 'authorRanklist',
+  //       component: () => import('@/views/exhibition/authorRanklist'),
+  //       meta: {
+  //         title: '小说作者排行榜',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //     },
+  //     {
+  //       path: 'categorypie',
+  //       name: 'categorypie',
+  //       component: () => import('@/views/exhibition/categorypie'),
+  //       meta: {
+  //         title: '类别分析图',
+  //         icon: 'dice',
+  //         permissions: ['admin'],
+  //       },
+  //       children: null,
+  //     },
+  //   ],
+  // },
   // {
   //   path: '/',
   //   component: Layout,
@@ -694,82 +841,6 @@ export const asyncRoutes = [
   //     },
   //   ],
   // },
-
-  {
-    path: '/exhibition',
-    component: Layout,
-    redirect: 'noRedirect',
-    name: 'exhibition',
-    meta: {
-      title: '可视化',
-      icon: 'dice',
-      permissions: ['admin'],
-    },
-    children: [
-      {
-        path: 'numRanklist',
-        name: 'numRanklist',
-        component: () => import('@/views/exhibition/numRanklist'),
-        meta: {
-          title: '字数排行榜',
-          icon: 'marker',
-          KeepAlive: true,
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'recommendedRanklist',
-        name: 'recommendedRanklist',
-        component: () => import('@/views/exhibition/recommendedRanklist'),
-        meta: {
-          title: '总推荐排行榜',
-          icon: 'dice',
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'clickRanklist',
-        name: 'clickRanklist',
-        component: () => import('@/views/exhibition/clickRanklist'),
-        meta: {
-          title: '点击数排行榜',
-          icon: 'dice',
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'weekRecommendedRanklist',
-        name: 'weekRecommendedRanklist',
-        component: () => import('@/views/exhibition/weekRecommendedRanklist'),
-        meta: {
-          title: '周推荐排行榜',
-          icon: 'dice',
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'authorRanklist',
-        name: 'authorRanklist',
-        component: () => import('@/views/exhibition/authorRanklist'),
-        meta: {
-          title: '小说作者排行榜',
-          icon: 'dice',
-          permissions: ['admin'],
-        },
-      },
-      {
-        path: 'categorypie',
-        name: 'categorypie',
-        component: () => import('@/views/exhibition/categorypie'),
-        meta: {
-          title: '类别分析图',
-          icon: 'dice',
-          permissions: ['admin'],
-        },
-        children: null,
-      },
-    ],
-  },
 
   {
     path: '*',

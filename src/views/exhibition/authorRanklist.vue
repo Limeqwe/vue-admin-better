@@ -31,6 +31,7 @@
       // this.param.pieName = this.$route.query.value
       // this.param.dataOrigin = this.$route.query.id
       // console.log('accept:', this.param)
+      console.log('authorRanklist')
     },
     mounted() {
       this.initChart()

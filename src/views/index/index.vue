@@ -171,7 +171,7 @@
           </div>
           <div style="text-align: center">
             <vab-colorful-icon style="font-size: 140px" icon-class="vab" />
-            <h1 style="font-size: 30px">vue-admin-better</h1>
+            <h1 style="font-size: 30px">小说分析系统</h1>
           </div>
           <div v-for="(item, index) in noticeList" :key="index">
             <el-alert
@@ -380,7 +380,7 @@
               },
               data: [
                 {
-                  name: 'vue-admin-better',
+                  name: '小说分析系统',
                   value: 15000,
                 },
                 {

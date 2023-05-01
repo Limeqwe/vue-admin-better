@@ -1,6 +1,6 @@
 <template>
   <span v-if="themeBar">
-    <vab-icon
+    <!-- <vab-icon
       title="主题配置"
       :icon="['fas', 'palette']"
       @click="handleOpenThemeBar"
@@ -59,7 +59,7 @@
         <el-button type="primary" @click="handleSaveTheme">保存</el-button>
         <el-button type="" @click="drawerVisible = false">取消</el-button>
       </div>
-    </el-drawer>
+    </el-drawer> -->
   </span>
 </template>
 

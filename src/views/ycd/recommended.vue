@@ -35,7 +35,6 @@
         </el-row>
       </el-main>
     </el-container>
-
     <el-container>
       <el-header>连载</el-header>
       <el-main>
@@ -74,7 +73,7 @@
   </div>
 </template>
 <script>
-  import { RandomSelectBook } from '@/api/testApi'
+  import { RandomSelectBook } from '@/api/betaApi'
   export default {
     data() {
       return {

@@ -20,7 +20,8 @@
     name: 'VabLogo',
     data() {
       return {
-        title: this.$baseTitle,
+        // title: this.$baseTitle,
+        title: '小说分析系统',
       }
     },
     computed: {

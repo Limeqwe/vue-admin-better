@@ -31,6 +31,7 @@
     created() {
       this.param.pieName = this.$route.query.value
       this.param.dataOrigin = this.$route.query.id
+      console.log('numRanklist')
       console.log('accept:', this.param)
     },
     mounted() {
@@ -88,7 +89,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .el-row {
     margin-bottom: 40px;
   }

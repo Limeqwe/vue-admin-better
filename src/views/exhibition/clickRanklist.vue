@@ -31,6 +31,7 @@
     created() {
       this.param.pieName = this.$route.query.value
       this.param.dataOrigin = this.$route.query.id
+      console.log('clickRanklist')
       console.log('accept:', this.param)
     },
     mounted() {

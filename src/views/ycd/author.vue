@@ -81,7 +81,7 @@
   </el-container>
 </template>
 <script>
-  import { selectWriterInformation, selectWriterBook } from '@/api/testApi'
+  import { selectWriterInformation, selectWriterBook } from '@/api/betaApi'
   export default {
     data() {
       return {
